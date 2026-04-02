@@ -32,31 +32,203 @@
     /* HERO SECTION */
     .hero-wrapper {
         position: relative;
-        padding: 180px 0 120px;
-        min-height: 90vh;
+        padding: 200px 0 130px;
+        min-height: 100vh;
         display: flex;
         align-items: center;
-        background: linear-gradient(135deg, rgba(15, 81, 50, 0.85) 0%, rgba(25, 135, 84, 0.70) 100%), url('{{ asset('atkah.jpg') }}') center/cover no-repeat;
+        background:
+            radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 30%),
+            radial-gradient(circle at 82% 18%, rgba(32, 201, 151, 0.26), transparent 24%),
+            linear-gradient(135deg, rgba(7, 44, 29, 0.96) 0%, rgba(15, 81, 50, 0.92) 44%, rgba(16, 185, 129, 0.78) 100%),
+            url('{{ asset('atkah.jpg') }}') center/cover no-repeat;
+        background-blend-mode: screen, screen, multiply, normal;
         overflow: hidden;
+    }
+
+    .hero-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(8, 35, 23, 0.2) 0%, transparent 58%);
+        pointer-events: none;
+    }
+
+    .hero-wrapper::after {
+        content: '';
+        position: absolute;
+        right: -10%;
+        bottom: -18%;
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+        filter: blur(18px);
+        pointer-events: none;
     }
 
     .hero-blur-blob {
         position: absolute;
-        width: 600px;
-        height: 600px;
-        background: var(--v-accent);
-        opacity: 0.1;
-        filter: blur(100px);
+        width: 520px;
+        height: 520px;
+        background: rgba(32, 201, 151, 0.32);
+        opacity: 0.95;
+        filter: blur(120px);
         border-radius: 50%;
-        top: -100px;
-        right: -200px;
+        top: -160px;
+        right: -180px;
         z-index: 0;
-        animation: float 10s ease-in-out infinite alternate;
+        animation: float 12s ease-in-out infinite alternate;
     }
 
     .hero-content {
         position: relative;
         z-index: 2;
+    }
+
+    .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #fff;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-kicker i {
+        color: #b9f6d0;
+    }
+
+    .hero-title {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: clamp(2.85rem, 5vw, 5.5rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+        color: #fff;
+        margin-bottom: 1.25rem;
+        text-wrap: balance;
+    }
+
+    .hero-title .accent {
+        color: #b9f6d0;
+    }
+
+    .hero-copy {
+        max-width: 640px;
+        font-size: 1.08rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.86);
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-panel {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .hero-panel-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        font-weight: 600;
+    }
+
+    .hero-panel-chip i {
+        color: #b9f6d0;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .btn-hero-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 100px;
+        font-weight: 700;
+        padding: 14px 32px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-hero-secondary:hover {
+        background: #fff;
+        color: var(--v-primary);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.92rem;
+    }
+
+    .hero-trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-trust-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 0.88rem;
+        font-weight: 600;
+    }
+
+    .hero-trust-item i {
+        color: #b9f6d0;
+    }
+
+    .hero-visual {
+        position: relative;
+        padding: 22px;
+    }
+
+    .hero-carousel-shell {
+        position: relative;
+        padding: 16px;
+        border-radius: 38px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
     }
 
     .glass-card {
@@ -74,7 +246,7 @@
         background: linear-gradient(135deg, var(--v-primary), var(--v-secondary));
         color: white;
         border-radius: 100px;
-        font-weight: 600;
+        font-weight: 700;
         padding: 14px 32px;
         border: none;
         box-shadow: 0 10px 20px rgba(15, 81, 50, 0.2);
@@ -110,21 +282,106 @@
 
     /* CAROUSEL */
     .hero-carousel {
-        border-radius: 32px;
+        border-radius: 30px;
         overflow: hidden;
-        box-shadow: 0 32px 64px rgba(15, 81, 50, 0.15);
-        transform: perspective(1000px) rotateY(-5deg);
+        box-shadow: none;
+        transform: none;
         transition: transform 0.5s ease;
-        border: 8px solid white;
+        border: none;
     }
 
     .hero-carousel:hover {
-        transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        transform: translateY(-6px);
+    }
+
+    .hero-carousel .carousel-indicators {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        left: auto;
+        margin: 0;
+        z-index: 3;
+    }
+
+    .hero-carousel .carousel-indicators [data-bs-target] {
+        width: 34px;
+        height: 8px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.42);
+        opacity: 1;
+    }
+
+    .hero-carousel .carousel-indicators .active {
+        background: #fff;
     }
 
     .carousel-item img {
-        height: 500px;
+        height: 540px;
         object-fit: cover;
+    }
+
+    .hero-floating-card {
+        position: absolute;
+        padding: 16px 18px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 22px 48px rgba(15, 81, 50, 0.16);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        color: var(--v-dark);
+        max-width: 260px;
+        z-index: 2;
+    }
+
+    .hero-floating-card--top {
+        top: 40px;
+        left: -6px;
+    }
+
+    .hero-floating-card--bottom {
+        right: -10px;
+        bottom: 32px;
+    }
+
+    .hero-floating-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        color: var(--v-primary);
+        margin-bottom: 6px;
+    }
+
+    .hero-floating-title i {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: var(--v-primary-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--v-primary);
+    }
+
+    .hero-floating-text {
+        margin: 0;
+        color: #6b7280;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .hero-floating-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #ecfdf5;
+        color: var(--v-primary);
+        font-size: 0.8rem;
+        font-weight: 700;
     }
 
     /* FEATURES */
@@ -431,6 +688,59 @@
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
+
+    @media (max-width: 991.98px) {
+        .hero-wrapper {
+            padding: 180px 0 110px;
+        }
+
+        .hero-visual {
+            padding: 0;
+        }
+
+        .hero-floating-card {
+            display: none;
+        }
+
+        .hero-carousel-shell {
+            padding: 12px;
+        }
+
+        .carousel-item img {
+            height: 420px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .hero-wrapper {
+            padding: 160px 0 90px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.3rem, 13vw, 3.2rem);
+        }
+
+        .hero-copy {
+            font-size: 0.98rem;
+        }
+
+        .hero-panel-chip,
+        .hero-trust-item,
+        .hero-note {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .hero-actions .btn-premium,
+        .hero-actions .btn-hero-secondary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .carousel-item img {
+            height: 320px;
+        }
+    }
 </style>
 
 <!-- Hero Section -->
@@ -439,41 +749,73 @@
     <div class="container hero-content">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 animate-up">
-                <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill bg-white shadow-sm text-primary mb-4 border-0">
+                <div class="hero-kicker mb-4">
                     <i class="fas fa-print"></i>
-                    <span class="fw-bold fs-6">Premium Printing Solutions</span>
+                    <span class="fw-bold fs-6">Printshop premium untuk kebutuhan cetak & ATK</span>
                 </div>
-                <h1 class="display-3 fw-bold mb-4 text-white" style="line-height: 1.1; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                    Wujudkan <br>
-                    <span class="text-warning">Kreativitas Anda</span><br>
-                    Dalam Cetakan
+                <h1 class="hero-title">
+                    Cetak lebih rapi,<br>
+                    lebih cepat,<br>
+                    dan terasa premium
                 </h1>
-                <p class="fs-5 text-white mb-5 pe-lg-5" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-                    Layanan percetakan modern dengan kualitas terbaik, presisi tinggi, dan pelayanan profesional untuk segala kebutuhan visual Anda.
+                <p class="hero-copy pe-lg-5">
+                    Vivia PrintShop menghadirkan solusi percetakan modern, layanan custom yang fleksibel, dan koleksi produk ATK yang siap mendukung kebutuhan harian maupun bisnis Anda.
                 </p>
-                <div class="d-flex flex-wrap gap-4">
-                    <a href="{{ route('shop') }}" class="btn-premium border-0 shadow-lg" style="background: var(--v-accent); color: var(--v-dark);">
-                        Mulai Belanja <i class="fas fa-arrow-right"></i>
+                <div class="hero-panel">
+                    <span class="hero-panel-chip"><i class="fas fa-truck"></i> Pengiriman cepat & rapi</span>
+                    <span class="hero-panel-chip"><i class="fas fa-palette"></i> Custom desain fleksibel</span>
+                    <span class="hero-panel-chip"><i class="fas fa-store"></i> Belanja produk & cetak</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="{{ route('shop') }}" class="btn-premium border-0 shadow-lg">
+                        Lihat Produk <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="{{ route('shopCetak') }}" class="btn-glass bg-white text-dark shadow-lg" style="border: none;">
-                        Layanan Custom
+                    <a href="{{ route('shopCetak') }}" class="btn-hero-secondary shadow-lg">
+                        Jelajahi Layanan
                     </a>
+                    <span class="hero-note">
+                        <i class="fas fa-shield-alt text-success"></i>
+                        Proses cepat, hasil lebih bersih
+                    </span>
+                </div>
+                <div class="hero-trust">
+                    <span class="hero-trust-item"><i class="fas fa-check-circle"></i> Order lebih mudah</span>
+                    <span class="hero-trust-item"><i class="fas fa-clock"></i> Support responsif</span>
                 </div>
             </div>
             <div class="col-lg-6 animate-up delay-2">
-                <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
-                    <div class="carousel-indicators mb-4">
-                        @foreach ($slides as $key)
-                            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }} border-0 rounded-pill" style="width: 32px; height: 8px; margin: 0 6px;"></button>
-                        @endforeach
+                <div class="hero-visual">
+                    <div class="hero-floating-card hero-floating-card--top d-none d-md-block">
+                        <div class="hero-floating-title">
+                            <i class="fas fa-award"></i>
+                            Kualitas unggulan
+                        </div>
+                        <p class="hero-floating-text">Dipilih untuk hasil yang presisi, warna lebih hidup, dan tampilan yang tetap profesional.</p>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach ($slides as $key => $images)
-                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="{{ asset('storage/' . $images->path) }}" class="d-block w-100" alt="Slide {{ $key + 1 }}">
-                                <div class="position-absolute w-100 h-100 top-0 left-0" style="background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);"></div>
+                    <div class="hero-carousel-shell">
+                        <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                @foreach ($slides as $key)
+                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}" aria-label="Slide {{ $loop->index + 1 }}"></button>
+                                @endforeach
                             </div>
-                        @endforeach
+                            <div class="carousel-inner">
+                                @foreach ($slides as $key => $images)
+                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                        <img src="{{ asset('storage/' . $images->path) }}" class="d-block w-100" alt="Slide {{ $key + 1 }}">
+                                        <div class="position-absolute w-100 h-100 top-0 left-0" style="background: linear-gradient(to top, rgba(0,0,0,0.32), transparent);"></div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-floating-card hero-floating-card--bottom d-none d-md-block">
+                        <div class="hero-floating-title">
+                            <i class="fas fa-bolt"></i>
+                            Siap order cepat
+                        </div>
+                        <p class="hero-floating-text mb-0">Katalog, cetak, dan checkout dalam satu alur yang lebih ringkas.</p>
+                        <div class="hero-floating-chip"><i class="fas fa-check"></i> Respons lebih cepat</div>
                     </div>
                 </div>
             </div>
