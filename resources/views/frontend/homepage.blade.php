@@ -555,29 +555,166 @@
     }
 
     /* PRODUCTS */
-    .product-card {
-        background: white;
-        border-radius: 32px;
-        padding: 16px;
+    .product-stage {
+        position: relative;
+        padding: 34px;
+        border-radius: 44px;
+        background:
+            radial-gradient(circle at top left, rgba(32, 201, 151, 0.12), transparent 26%),
+            radial-gradient(circle at bottom right, rgba(15, 81, 50, 0.08), transparent 34%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 246, 0.96));
+        border: 1px solid rgba(15, 81, 50, 0.06);
+        box-shadow: 0 34px 72px rgba(15, 81, 50, 0.08);
         overflow: hidden;
-        border: 1px solid rgba(0,0,0,0.03);
-        transition: all 0.4s ease;
+    }
+
+    .product-stage::before {
+        content: '';
+        position: absolute;
+        top: -120px;
+        left: -100px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(32, 201, 151, 0.16), rgba(32, 201, 151, 0));
+        pointer-events: none;
+    }
+
+    .product-stage-header,
+    .product-grid {
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-section-copy {
+        max-width: 640px;
+    }
+
+    .product-section-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #67a90d;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    .product-section-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-section-subtitle {
+        max-width: 560px;
+        margin: 0;
+        color: #6c8077;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .product-section-cta {
+        min-height: 56px;
+        padding: 0 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(15, 81, 50, 0.1);
+        box-shadow: 0 16px 28px rgba(15, 81, 50, 0.08);
+    }
+
+    .product-grid {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+    }
+
+    .product-card {
+        position: relative;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 248, 0.96));
+        border-radius: 34px;
+        padding: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
         height: 100%;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 20px 42px rgba(15, 81, 50, 0.06);
+        isolation: isolate;
+    }
+
+    .product-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0));
+        pointer-events: none;
+    }
+
+    .product-card::after {
+        content: '';
+        position: absolute;
+        right: -58px;
+        bottom: -82px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(209, 231, 221, 0.88), rgba(209, 231, 221, 0));
+        opacity: 0.54;
+        z-index: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .product-card > * {
+        position: relative;
+        z-index: 1;
     }
 
     .product-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 32px 64px rgba(0,0,0,0.08);
+        transform: translateY(-12px);
+        box-shadow: 0 34px 64px rgba(15, 81, 50, 0.14);
+        border-color: rgba(15, 81, 50, 0.14);
+    }
+
+    .product-card:hover::after {
+        transform: scale(1.08);
+        opacity: 0.92;
+    }
+
+    .product-visual-frame {
+        position: relative;
+        padding: 12px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(242, 247, 244, 0.96), rgba(255, 255, 255, 0.94));
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 16px 28px rgba(15, 81, 50, 0.05);
+        margin-bottom: 20px;
     }
 
     .product-img-wrapper {
-        border-radius: 24px;
+        border-radius: 22px;
         overflow: hidden;
         position: relative;
         aspect-ratio: 1;
-        margin-bottom: 24px;
+        margin-bottom: 0;
+        background:
+            radial-gradient(circle at top right, rgba(32, 201, 151, 0.14), transparent 32%),
+            linear-gradient(180deg, #f2f6f4 0%, #ffffff 100%);
+    }
+
+    .product-img-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(15, 81, 50, 0.04));
+        pointer-events: none;
+        z-index: 1;
     }
 
     .product-img-wrapper img {
@@ -585,36 +722,163 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        z-index: 0;
     }
 
     .product-card:hover .product-img-wrapper img {
-        transform: scale(1.08);
+        transform: scale(1.06);
+    }
+
+    .product-badge-row {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        z-index: 3;
     }
 
     .product-badge {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
+        position: static;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
         color: var(--v-primary);
-        padding: 8px 16px;
+        padding: 9px 14px;
         border-radius: 100px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 12px 20px rgba(15, 81, 50, 0.06);
+    }
+
+    .product-stock-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        box-shadow: 0 12px 20px rgba(15, 81, 50, 0.06);
+        white-space: nowrap;
+    }
+
+    .product-stock-badge i {
+        font-size: 0.72rem;
+    }
+
+    .product-stock-badge--success {
+        background: rgba(236, 253, 245, 0.88);
+        color: #0f5132;
+    }
+
+    .product-stock-badge--warning {
+        background: rgba(255, 251, 235, 0.94);
+        color: #92400e;
+    }
+
+    .product-stock-badge--muted {
+        background: rgba(243, 244, 246, 0.94);
+        color: #4b5563;
+    }
+
+    .product-stock-badge--neutral {
+        background: rgba(239, 246, 255, 0.94);
+        color: #1d4ed8;
+    }
+
+    .product-quick-link {
+        display: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .product-quick-link {
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #163828;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 16px 28px rgba(15, 81, 50, 0.08);
+            transform: translateY(16px);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            z-index: 3;
+        }
+
+        .product-card:hover .product-quick-link {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .product-quick-link:hover {
+            color: var(--v-primary);
+        }
+    }
+
+    .product-card-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .product-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        align-self: flex-start;
+        margin-bottom: 12px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(15, 81, 50, 0.06);
+        color: var(--v-primary);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .product-title-link {
+        text-decoration: none;
+        color: inherit;
     }
 
     .product-title {
-        font-weight: 700;
-        font-size: 1.15rem;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 1.34rem;
         color: var(--v-dark);
-        margin-bottom: 8px;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        transition: color 0.2s ease;
+        transition: color 0.25s ease;
     }
 
     .product-card:hover .product-title {
@@ -622,34 +886,136 @@
     }
 
     .product-desc {
-        font-size: 0.9rem;
-        color: #6B7280;
-        margin-bottom: 20px;
-        flex-grow: 1;
+        font-size: 0.93rem;
+        line-height: 1.72;
+        color: #677b72;
+        margin-bottom: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .product-meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        box-shadow: 0 10px 20px rgba(15, 81, 50, 0.05);
+        color: #254636;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+
+    .product-meta-pill i {
+        color: var(--v-secondary);
+    }
+
+    .product-meta-pill--soft {
+        background: rgba(209, 231, 221, 0.36);
+    }
+
+    .product-footer {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid rgba(15, 81, 50, 0.08);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+    }
+
+    .product-price-stack {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .product-price-label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #7b8d85;
     }
 
     .product-price {
-        font-size: 1.4rem;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.58rem;
         font-weight: 800;
         color: var(--v-primary);
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+
+    .product-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .product-detail-link {
+        min-height: 48px;
+        padding: 0 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: rgba(15, 81, 50, 0.06);
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        color: #234536;
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .product-detail-link:hover {
+        color: var(--v-primary);
+        background: rgba(209, 231, 221, 0.72);
+        transform: translateY(-2px);
     }
 
     .add-cart-btn {
-        width: 48px;
-        height: 48px;
-        border-radius: 100px;
-        background: var(--v-primary-soft);
-        color: var(--v-primary);
+        min-width: 116px;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--v-primary), var(--v-secondary));
+        color: #fff;
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 10px;
         border: none;
-        transition: all 0.3s ease;
+        box-shadow: 0 16px 28px rgba(15, 81, 50, 0.18);
+        font-size: 0.92rem;
+        font-weight: 800;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .add-cart-btn i {
+        transition: transform 0.25s ease;
     }
 
     .product-card:hover .add-cart-btn {
-        background: var(--v-primary);
-        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 22px 34px rgba(15, 81, 50, 0.22);
+    }
+
+    .product-card:hover .add-cart-btn i {
         transform: rotate(90deg);
     }
 
@@ -1026,6 +1392,31 @@
             min-height: auto;
         }
 
+        .product-stage {
+            padding: 24px;
+            border-radius: 36px;
+        }
+
+        .product-stage-header {
+            margin-bottom: 2rem !important;
+        }
+
+        .product-section-subtitle {
+            max-width: 100%;
+        }
+
+        .product-card {
+            border-radius: 30px;
+        }
+
+        .product-title {
+            font-size: 1.24rem;
+        }
+
+        .product-actions {
+            width: 100%;
+        }
+
         .feature-stage {
             padding: 22px;
             border-radius: 34px;
@@ -1063,6 +1454,73 @@
     @media (max-width: 767.98px) {
         .hero-wrapper {
             padding: calc(var(--site-header-offset, 92px) + 42px) 0 92px;
+        }
+
+        .product-stage {
+            padding: 18px;
+            border-radius: 30px;
+        }
+
+        .product-stage-header {
+            margin-bottom: 1.75rem !important;
+        }
+
+        .product-section-title {
+            font-size: clamp(2rem, 9vw, 2.8rem);
+        }
+
+        .product-section-subtitle {
+            font-size: 0.95rem;
+            line-height: 1.68;
+        }
+
+        .product-visual-frame {
+            padding: 10px;
+            border-radius: 24px;
+        }
+
+        .product-img-wrapper {
+            border-radius: 18px;
+        }
+
+        .product-card {
+            padding: 16px;
+            border-radius: 26px;
+        }
+
+        .product-kicker {
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.16rem;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            line-height: 1.64;
+            -webkit-line-clamp: 2;
+        }
+
+        .product-meta-pill {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .product-footer {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 14px;
+        }
+
+        .product-actions {
+            width: 100%;
+        }
+
+        .product-detail-link,
+        .add-cart-btn {
+            flex: 1 1 0;
         }
 
         .feature-stage {
@@ -1171,6 +1629,71 @@
             padding: calc(var(--site-header-offset, 84px) + 26px) 0 78px;
         }
 
+        .product-stage {
+            padding: 14px;
+            border-radius: 24px;
+        }
+
+        .product-stage-header {
+            gap: 1rem !important;
+        }
+
+        .product-section-kicker {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+        }
+
+        .product-section-title {
+            margin-top: 0.55rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-section-cta {
+            width: 100%;
+        }
+
+        .product-card {
+            padding: 14px;
+            border-radius: 22px;
+        }
+
+        .product-visual-frame {
+            padding: 9px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .product-badge-row {
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            gap: 8px;
+        }
+
+        .product-badge,
+        .product-stock-badge {
+            padding: 8px 10px;
+            font-size: 0.68rem;
+        }
+
+        .product-kicker {
+            font-size: 0.68rem;
+        }
+
+        .product-price {
+            font-size: 1.42rem;
+        }
+
+        .product-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .product-detail-link,
+        .add-cart-btn {
+            min-height: 50px;
+        }
+
         .feature-stage {
             padding: 14px;
             border-radius: 24px;
@@ -1242,6 +1765,38 @@
     @media (max-width: 479.98px) {
         .hero-wrapper {
             padding: calc(var(--site-header-offset, 84px) + 18px) 0 70px;
+        }
+
+        .product-stage {
+            padding: 12px;
+            border-radius: 22px;
+        }
+
+        .product-card {
+            border-radius: 20px;
+        }
+
+        .product-section-subtitle {
+            font-size: 0.9rem;
+        }
+
+        .product-badge-row {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-stock-badge {
+            max-width: 100%;
+            white-space: normal;
+        }
+
+        .product-actions {
+            grid-template-columns: 1fr;
+        }
+
+        .product-detail-link,
+        .add-cart-btn {
+            width: 100%;
         }
 
         .hero-kicker {
@@ -1495,60 +2050,101 @@
 
 <!-- Products Showcase -->
 <div class="container py-5 my-5">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
-        <div class="mb-4 mb-md-0">
-            <span class="text-primary fw-bold text-uppercase tracking-wider" style="letter-spacing: 2px; font-size: 0.9rem;">Koleksi Terbaik</span>
-            <h2 class="display-5 fw-bold title-gradient mt-2">Produk Unggulan Kami</h2>
+    <div class="product-stage">
+        <div class="product-stage-header d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-4 mb-5">
+            <div class="product-section-copy">
+                <span class="product-section-kicker">Koleksi Terbaik</span>
+                <h2 class="product-section-title title-gradient">Produk Unggulan Kami</h2>
+                <p class="product-section-subtitle">Temukan produk pilihan untuk kebutuhan cetak dan ATK dengan visual yang lebih jelas, harga yang langsung terbaca, dan alur belanja yang terasa lebih cepat.</p>
+            </div>
+            <a href="{{ route('shop') }}" class="btn-glass product-section-cta">
+                Eksplor Semua <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-        <a href="{{ route('shop') }}" class="btn-glass px-4">
-            Eksplor Semua <i class="fas fa-arrow-right ms-2"></i>
-        </a>
-    </div>
 
-    <div class="row g-4">
-        @foreach ($products as $row)
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <div class="product-img-wrapper">
-                        @php
-                            $image = !empty($row->products->productImages->first())
-                                ? asset('storage/' . $row->products->productImages->first()->path)
-                                : asset('images/placeholder.jpg');
-                        @endphp
-                        <img src="{{ $image }}" alt="{{ $row->products->name }}">
-                        <div class="product-badge shadow-sm">
-                            <i class="fas fa-tag me-1"></i> {{ $row->categories->name }}
+        <div class="row product-grid">
+            @foreach ($products as $row)
+                @php
+                    $product = $row->products;
+                    $image = !empty($product->productImages->first())
+                        ? asset('storage/' . $product->productImages->first()->path)
+                        : asset('images/placeholder.jpg');
+                    $hasInventory = $product->productInventory != null;
+                    $stockQuantity = $hasInventory
+                        ? ($product->type == 'configurable' ? $product->total_stock : ($product->productInventory->qty ?? 0))
+                        : null;
+                    $availabilityLabel = is_null($stockQuantity)
+                        ? ($product->type == 'configurable' ? 'Pilih varian' : 'Lihat detail')
+                        : ($stockQuantity > 10 ? 'Tersedia' : ($stockQuantity > 0 ? 'Stok terbatas' : 'Stok habis'));
+                    $availabilityClass = is_null($stockQuantity)
+                        ? 'product-stock-badge--neutral'
+                        : ($stockQuantity > 10 ? 'product-stock-badge--success' : ($stockQuantity > 0 ? 'product-stock-badge--warning' : 'product-stock-badge--muted'));
+                    $availabilityIcon = is_null($stockQuantity)
+                        ? 'fas fa-info-circle'
+                        : ($stockQuantity > 10 ? 'fas fa-check-circle' : ($stockQuantity > 0 ? 'fas fa-exclamation-circle' : 'fas fa-times-circle'));
+                    $productKicker = $product->type == 'configurable' ? 'Pilihan varian' : 'Siap dipesan';
+                    $productHighlight = $product->type == 'configurable' ? 'Lebih fleksibel' : 'Checkout cepat';
+                @endphp
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-visual-frame">
+                            <div class="product-badge-row">
+                                <div class="product-badge shadow-sm">
+                                    <i class="fas fa-tag"></i> {{ $row->categories->name }}
+                                </div>
+                                <div class="product-stock-badge {{ $availabilityClass }}">
+                                    <i class="{{ $availabilityIcon }}"></i> {{ $availabilityLabel }}
+                                </div>
+                            </div>
+                            <div class="product-img-wrapper">
+                                <img src="{{ $image }}" alt="{{ $product->name }}">
+                            </div>
+                            <a href="{{ route('shop-detail', $product->id) }}" class="product-quick-link">
+                                Lihat detail <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
-                    </div>
-                    
-                    <a href="{{ route('shop-detail', $row->products->id) }}" class="text-decoration-none">
-                        <h3 class="product-title">{{ $row->products->name }}</h3>
-                    </a>
-                    <p class="product-desc">{{ Str::limit($row->products->short_description, 60) }}</p>
-                    
-                    @if ($row->products->productInventory != null)
-                        <div class="mt-auto mb-4 d-inline-flex align-items-center bg-light rounded-pill px-3 py-1">
-                            <div class="w-2 h-2 rounded-circle bg-success me-2" style="width:8px; height:8px;"></div>
-                            <small class="fw-bold text-dark">
-                                Stok: {{ $row->products->type == 'configurable' ? $row->products->total_stock : ($row->products->productInventory->qty ?? 0) }}
-                            </small>
+
+                        <div class="product-card-body">
+                            <span class="product-kicker">{{ $productKicker }}</span>
+                            <a href="{{ route('shop-detail', $product->id) }}" class="product-title-link">
+                                <h3 class="product-title">{{ $product->name }}</h3>
+                            </a>
+                            <p class="product-desc">{{ Str::limit($product->short_description, 84) }}</p>
+
+                            <div class="product-meta-row">
+                                @if ($hasInventory)
+                                    <span class="product-meta-pill">
+                                        <i class="fas fa-box"></i>
+                                        Stok {{ $stockQuantity }}
+                                    </span>
+                                @endif
+                                <span class="product-meta-pill product-meta-pill--soft">
+                                    <i class="fas fa-bolt"></i>
+                                    {{ $productHighlight }}
+                                </span>
+                            </div>
+
+                            <div class="product-footer">
+                                <div class="product-price-stack">
+                                    <span class="product-price-label">Harga</span>
+                                    <div class="product-price">Rp {{ number_format($product->price) }}</div>
+                                </div>
+                                <div class="product-actions">
+                                    <a href="{{ route('shop-detail', $product->id) }}" class="product-detail-link">Detail</a>
+                                    <button class="add-cart-btn add-to-card"
+                                        product-id="{{ $product->id }}"
+                                        product-type="{{ $product->type }}"
+                                        product-slug="{{ $product->slug }}">
+                                        <span>Tambah</span>
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    @endif
-                    
-                    <div class="d-flex justify-content-between align-items-center mt-auto border-top pt-3">
-                        <div class="product-price">
-                            Rp {{ number_format($row->products->price) }}
-                        </div>
-                        <button class="add-cart-btn add-to-card"
-                            product-id="{{ $row->products->id }}"
-                            product-type="{{ $row->products->type }}"
-                            product-slug="{{ $row->products->slug }}">
-                            <i class="fas fa-plus"></i>
-                        </button>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
 

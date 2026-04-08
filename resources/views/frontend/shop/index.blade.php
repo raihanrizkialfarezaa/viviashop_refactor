@@ -422,9 +422,582 @@
             max-height: calc(100vh - 100px);
         }
     }
+
+    /* Premium shop page overrides */
+    .shop-page-header {
+        position: relative;
+        margin-top: 18px;
+        padding: 5.5rem 0 6.5rem;
+        border-radius: 0 0 42px 42px;
+        background:
+            radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 24%),
+            radial-gradient(circle at 82% 18%, rgba(32, 201, 151, 0.18), transparent 24%),
+            linear-gradient(135deg, rgba(9, 43, 28, 0.95) 0%, rgba(15, 81, 50, 0.92) 48%, rgba(22, 163, 74, 0.8) 100%);
+        box-shadow: inset 0 -1px 0 rgba(255,255,255,0.1);
+    }
+
+    .shop-page-header::after {
+        content: '';
+        position: absolute;
+        right: -100px;
+        top: -90px;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0));
+        pointer-events: none;
+    }
+
+    .shop-page-header .breadcrumb {
+        gap: 0.5rem;
+    }
+
+    .shop-page-header .breadcrumb-item,
+    .shop-page-header .breadcrumb-item a {
+        color: rgba(255,255,255,0.8) !important;
+        text-decoration: none;
+    }
+
+    .shop-page-header .breadcrumb-item.active {
+        color: #ffffff !important;
+    }
+
+    .search-container.shop-toolbar-card {
+        position: relative;
+        margin-top: -72px;
+        margin-bottom: 2rem;
+        padding: 22px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(255,255,255,0.52);
+        box-shadow: 0 28px 56px rgba(15, 81, 50, 0.12);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        z-index: 2;
+    }
+
+    .shop-toolbar-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .shop-toolbar-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #0f5132;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    .shop-toolbar-title {
+        margin: 0;
+        font-family: 'Raleway', sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #17382a;
+    }
+
+    .shop-toolbar-subtitle {
+        margin: 0;
+        color: #687c73;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .search-input-group {
+        border-radius: 18px;
+        box-shadow: 0 10px 28px rgba(15, 81, 50, 0.08);
+        border: 1px solid rgba(15,81,50,0.08);
+        background: rgba(255,255,255,0.94);
+    }
+
+    .search-input {
+        min-height: 54px;
+        padding: 0.85rem 1rem;
+        background: transparent;
+    }
+
+    .search-btn {
+        min-width: 52px;
+        min-height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #0f5132, #198754);
+        box-shadow: 0 14px 24px rgba(15,81,50,0.16);
+    }
+
+    .sort-dropdown {
+        min-height: 54px;
+        border-radius: 16px;
+        border: 1px solid rgba(15,81,50,0.1);
+        box-shadow: 0 10px 24px rgba(15,81,50,0.05);
+    }
+
+    .reset-btn, .view-all-btn {
+        background: rgba(255,255,255,0.92);
+        border: 1px solid rgba(15,81,50,0.1);
+        color: #17382a;
+        box-shadow: 0 10px 22px rgba(15,81,50,0.06);
+    }
+
+    .reset-btn:hover, .view-all-btn:hover {
+        color: #0f5132;
+        background: rgba(236,253,245,0.96);
+        box-shadow: 0 16px 28px rgba(15,81,50,0.12);
+    }
+
+    .filter-pill {
+        background: rgba(209, 231, 221, 0.45);
+        border: 1px solid rgba(15,81,50,0.08);
+        color: #234536;
+        font-weight: 700;
+    }
+
+    .filter-pill:hover {
+        background: #0f5132;
+    }
+
+    .category-sidebar {
+        border-radius: 28px;
+        padding: 1.1rem 1.1rem 1.35rem;
+        box-shadow: 0 24px 46px rgba(15,81,50,0.08);
+        top: 118px;
+        max-height: calc(100vh - 144px);
+        border: 1px solid rgba(15,81,50,0.08);
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
+    }
+
+    .category-item {
+        border-left: 0;
+        border: 1px solid transparent;
+        border-radius: 16px;
+        margin-bottom: 0.65rem;
+    }
+
+    .category-item:hover {
+        background: rgba(209, 231, 221, 0.42);
+        border-color: rgba(15,81,50,0.08);
+        transform: translateX(0) translateY(-1px);
+    }
+
+    .category-item.active {
+        background: linear-gradient(135deg, #0f5132, #198754);
+        border-color: transparent;
+        box-shadow: 0 16px 28px rgba(15,81,50,0.18);
+    }
+
+    .products-header.catalog-results-card {
+        border-radius: 28px;
+        padding: 1.4rem 1.5rem;
+        box-shadow: 0 20px 42px rgba(15,81,50,0.07);
+        border: 1px solid rgba(15,81,50,0.08);
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
+    }
+
+    .shop-products-grid {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 1.5rem;
+    }
+
+    .product-card {
+        position: relative;
+        border-radius: 32px;
+        padding: 16px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
+        border: 1px solid rgba(15,81,50,0.08);
+        box-shadow: 0 20px 42px rgba(15,81,50,0.06);
+        margin-bottom: 0;
+        isolation: isolate;
+    }
+
+    .product-card::after {
+        content: '';
+        position: absolute;
+        right: -54px;
+        bottom: -80px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(209,231,221,0.88), rgba(209,231,221,0));
+        opacity: 0.52;
+        z-index: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .product-card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .product-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 34px 64px rgba(15,81,50,0.14);
+        border-color: rgba(15,81,50,0.14);
+    }
+
+    .product-card:hover::after {
+        transform: scale(1.08);
+        opacity: 0.88;
+    }
+
+    .product-image-shell {
+        position: relative;
+        padding: 12px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(242,247,244,0.96), rgba(255,255,255,0.94));
+        border: 1px solid rgba(15,81,50,0.08);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 16px 28px rgba(15,81,50,0.05);
+        margin-bottom: 18px;
+    }
+
+    .product-image {
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 22px;
+        background: radial-gradient(circle at top right, rgba(32,201,151,0.14), transparent 32%), linear-gradient(180deg, #f2f6f4 0%, #ffffff 100%);
+    }
+
+    .product-topbar {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        z-index: 3;
+    }
+
+    .product-category-badge,
+    .product-stock-badge {
+        position: static;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        border: 1px solid rgba(255,255,255,0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 12px 20px rgba(15,81,50,0.06);
+    }
+
+    .product-category-badge {
+        background: rgba(255,255,255,0.92);
+        color: #0f5132;
+    }
+
+    .product-stock-badge {
+        background: rgba(236,253,245,0.88);
+        color: #0f5132;
+    }
+
+    .product-stock-badge--warning {
+        background: rgba(255,251,235,0.94);
+        color: #92400e;
+    }
+
+    .product-stock-badge--muted {
+        background: rgba(243,244,246,0.94);
+        color: #4b5563;
+    }
+
+    .product-image img {
+        transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.06);
+    }
+
+    .product-quick-link {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 46px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.92);
+        color: #163828;
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-decoration: none;
+        box-shadow: 0 16px 28px rgba(15,81,50,0.08);
+        transform: translateY(16px);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+        z-index: 3;
+    }
+
+    .product-card:hover .product-quick-link {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .product-quick-link:hover {
+        color: #0f5132;
+        text-decoration: none;
+    }
+
+    .product-content {
+        padding: 0.25rem 0 0;
+    }
+
+    .product-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        align-self: flex-start;
+        margin-bottom: 12px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(15,81,50,0.06);
+        color: #0f5132;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .product-title-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .product-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.28rem;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #1c3644;
+        margin-bottom: 12px;
+        transition: color 0.25s ease;
+    }
+
+    .product-description {
+        color: #667970;
+        font-size: 0.92rem;
+        line-height: 1.72;
+        margin-bottom: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .product-stock-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.95);
+        border: 1px solid rgba(15,81,50,0.08);
+        box-shadow: 0 10px 20px rgba(15,81,50,0.05);
+        color: #254636;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+
+    .product-stock-pill i {
+        color: #198754;
+    }
+
+    .product-stock-pill--soft {
+        background: rgba(209,231,221,0.36);
+    }
+
+    .product-footer {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid rgba(15,81,50,0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .product-price-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .product-price-label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #7b8d85;
+    }
+
+    .product-price {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.52rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-bottom: 0;
+    }
+
+    .product-action-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .product-detail-btn {
+        min-height: 48px;
+        padding: 0 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: rgba(15,81,50,0.06);
+        border: 1px solid rgba(15,81,50,0.08);
+        color: #234536;
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .product-detail-btn:hover {
+        color: #0f5132;
+        background: rgba(209,231,221,0.72);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .btn-add-cart {
+        min-height: 48px;
+        padding: 0 16px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #0f5132, #198754);
+        box-shadow: 0 16px 28px rgba(15,81,50,0.18);
+    }
+
+    .btn-add-cart:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 34px rgba(15,81,50,0.22);
+        background: linear-gradient(135deg, #0f5132, #20a46b);
+    }
+
+    .no-products {
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
+        border: 1px solid rgba(15,81,50,0.08);
+        box-shadow: 0 24px 46px rgba(15,81,50,0.08);
+    }
+
+    @media (max-width: 991.98px) {
+        .shop-page-header {
+            padding: 4.8rem 0 5.8rem;
+        }
+
+        .search-container.shop-toolbar-card {
+            margin-top: -56px;
+            padding: 18px;
+            border-radius: 26px;
+        }
+
+        .category-sidebar {
+            top: 98px;
+            max-height: none;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .shop-page-header {
+            margin-top: 14px;
+            padding: 4.4rem 0 5.4rem;
+            border-radius: 0 0 28px 28px;
+        }
+
+        .search-container.shop-toolbar-card {
+            margin-top: -42px;
+            padding: 16px;
+            border-radius: 22px;
+        }
+
+        .products-header.catalog-results-card {
+            padding: 1.1rem 1rem;
+            border-radius: 22px;
+        }
+
+        .product-image-shell {
+            padding: 10px;
+            border-radius: 24px;
+        }
+
+        .product-card {
+            padding: 14px;
+            border-radius: 26px;
+        }
+
+        .product-title {
+            font-size: 1.14rem;
+        }
+
+        .product-description {
+            -webkit-line-clamp: 2;
+        }
+
+        .product-stock-pill {
+            width: 100%;
+            justify-content: flex-start;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .shop-toolbar-title {
+            font-size: 1.4rem;
+        }
+
+        .product-action-row {
+            grid-template-columns: 1fr;
+        }
+
+        .product-topbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-badge-row,
+        .product-category-badge,
+        .product-stock-badge {
+            font-size: 0.68rem;
+        }
+
+        .product-quick-link {
+            display: none;
+        }
+    }
 </style>
 
-    <div class="container-fluid page-header py-5">
+    <div class="container-fluid page-header shop-page-header py-5">
         <div class="container">
             <div class="text-center">
                 <h1 class="text-white display-4 fw-bold mb-3">
@@ -443,12 +1016,13 @@
     <div class="container-fluid py-5">
         <div class="container">
             <!-- Search and Filter Section -->
-            <div class="search-container">
+            <div class="search-container shop-toolbar-card">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6">
-                        <div class="">
-                            <h5 class="mb-0 text-white-50 small">Telusuri produk dengan cepat</h5>
-                            <small class="text-white-50">Gunakan pencarian di sidebar untuk akses cepat</small>
+                        <div class="shop-toolbar-copy">
+                            <span class="shop-toolbar-kicker"><i class="fas fa-sparkles"></i> Kurasi katalog</span>
+                            <h5 class="shop-toolbar-title">Temukan produk yang paling relevan untuk kebutuhan Anda</h5>
+                            <p class="shop-toolbar-subtitle">Filter, kategori, dan pengurutan dibuat lebih cepat dibaca agar pengunjung lebih mudah memilih lalu lanjut membeli.</p>
                         </div>
                     </div>
                     
@@ -580,7 +1154,7 @@
                 <!-- Products Grid -->
                 <div class="col-lg-9">
                     <!-- Products Header with Count -->
-                    <div class="products-header">
+                    <div class="products-header catalog-results-card">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h5 class="text-primary fw-bold mb-1">
@@ -662,64 +1236,85 @@
                         ]);
                     ?>
 
-                    <div class="row g-4">
+                    <div class="row g-4 shop-products-grid">
                         @forelse ($paginator as $row)
+                            @php
+                                $product = $row->products;
+                                $image = !empty($product->productImages->first()) 
+                                    ? asset('storage/'.$product->productImages->first()->path) 
+                                    : asset('images/placeholder.jpg');
+                                $stock = $product->type == 'configurable' ? $product->total_stock : ($product->productInventory->qty ?? 0);
+                                $availabilityLabel = $stock > 10 ? 'Tersedia' : ($stock > 0 ? 'Stok terbatas' : 'Out of stock');
+                                $availabilityClass = $stock > 10 ? '' : ($stock > 0 ? 'product-stock-badge--warning' : 'product-stock-badge--muted');
+                                $availabilityIcon = $stock > 10 ? 'fas fa-check-circle' : ($stock > 0 ? 'fas fa-exclamation-circle' : 'fas fa-times-circle');
+                                $productKicker = $product->type == 'configurable' ? 'Pilihan varian' : 'Siap dipesan';
+                                $productHighlight = $product->type == 'configurable' ? 'Lebih fleksibel' : 'Checkout cepat';
+                            @endphp
                             <div class="col-md-6 col-lg-4">
                                 <div class="product-card h-100">
-                                    <div class="product-image">
-                                        @php
-                                            $image = !empty($row->products->productImages->first()) 
-                                                ? asset('storage/'.$row->products->productImages->first()->path) 
-                                                : asset('images/placeholder.jpg');
-                                        @endphp
-                                        <img src="{{ $image }}" alt="{{ $row->products->name }}">
-                                        
-                                        <!-- Category Badge -->
-                                        <div class="product-category-badge">
-                                            {{ $row->categories->name }}
-                                        </div>
-                                        
-                                        <!-- Stock Badge -->
-                                            @php $stock = $row->products->type == 'configurable' ? $row->products->total_stock : ($row->products->productInventory->qty ?? 0); @endphp
-                                            @if ($stock > 0)
-                                                <div class="product-stock-badge">
-                                                    <i class="fas fa-check-circle me-1"></i>
-                                                    {{ $stock }} tersedia
+                                    <div class="product-image-shell">
+                                        <div class="product-image">
+                                            <div class="product-topbar">
+                                                <div class="product-category-badge">
+                                                    <i class="fas fa-tag"></i>
+                                                    {{ $row->categories->name }}
                                                 </div>
-                                        @endif
+                                                <div class="product-stock-badge {{ $availabilityClass }}">
+                                                    <i class="{{ $availabilityIcon }}"></i>
+                                                    {{ $availabilityLabel }}
+                                                </div>
+                                            </div>
+                                            <img src="{{ $image }}" alt="{{ $product->name }}">
+                                            <a href="{{ route('shop-detail', $product->id) }}" class="product-quick-link">
+                                                Lihat Detail <i class="fas fa-arrow-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                    
+
                                     <div class="product-content d-flex flex-column">
-                                        <a href="{{ route('shop-detail', $row->products->id) }}" class="text-decoration-none">
-                                            <h5 class="product-title">{{ $row->products->name }}</h5>
+                                        <span class="product-kicker">{{ $productKicker }}</span>
+                                        <a href="{{ route('shop-detail', $product->id) }}" class="product-title-link">
+                                            <h5 class="product-title">{{ $product->name }}</h5>
                                         </a>
                                         
                                         <p class="product-description flex-grow-1">
-                                            {{ Str::limit($row->products->short_description, 80) }}
+                                            {{ Str::limit($product->short_description, 88) }}
                                         </p>
-                                        
-                                        @if ($row->products->productInventory)
-                                            <div class="product-stock">
-                                                <i class="fas fa-warehouse me-2"></i>
-                                                Stok: {{ $row->products->productInventory->qty }}
-                                            </div>
-                                        @endif
-                                        
-                                        <div class="product-price">
-                                            Rp {{ number_format($row->products->price, 0, ',', '.') }}
+
+                                        <div class="product-meta-row">
+                                            <span class="product-stock-pill">
+                                                <i class="fas fa-box"></i>
+                                                Stok {{ $stock }}
+                                            </span>
+                                            <span class="product-stock-pill product-stock-pill--soft">
+                                                <i class="fas fa-bolt"></i>
+                                                {{ $productHighlight }}
+                                            </span>
                                         </div>
-                                        
-                                        <button class="btn btn-add-cart add-to-card" 
-                                                product-id="{{ $row->products->id }}" 
-                                                product-type="{{ $row->products->type }}" 
-                                                product-slug="{{ $row->products->slug }}"
-                                                data-bs-toggle="tooltip"
-                                                data-bs-placement="top"
-                                                title="Klik untuk menambahkan {{ $row->products->name }} ke keranjang"
-                                                aria-label="Tambah {{ $row->products->name }} ke keranjang">
-                                            <i class="fas fa-cart-plus me-2"></i>
-                                            Tambah ke Keranjang
-                                        </button>
+
+                                        <div class="product-footer">
+                                            <div class="product-price-stack">
+                                                <span class="product-price-label">Harga</span>
+                                                <div class="product-price">
+                                                    Rp {{ number_format($product->price, 0, ',', '.') }}
+                                                </div>
+                                            </div>
+
+                                            <div class="product-action-row">
+                                                <a href="{{ route('shop-detail', $product->id) }}" class="product-detail-btn">Detail</a>
+                                                <button class="btn btn-add-cart add-to-card" 
+                                                        product-id="{{ $product->id }}" 
+                                                        product-type="{{ $product->type }}" 
+                                                        product-slug="{{ $product->slug }}"
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        title="Klik untuk menambahkan {{ $product->name }} ke keranjang"
+                                                        aria-label="Tambah {{ $product->name }} ke keranjang">
+                                                    <i class="fas fa-cart-plus"></i>
+                                                    <span>Tambah</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
