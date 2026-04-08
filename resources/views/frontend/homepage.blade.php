@@ -390,55 +390,168 @@
     }
 
     /* FEATURES */
+    .feature-stage {
+        position: relative;
+        padding: 28px;
+        border-radius: 42px;
+        background:
+            radial-gradient(circle at top right, rgba(32, 201, 151, 0.12), transparent 28%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 249, 246, 0.94));
+        border: 1px solid rgba(15, 81, 50, 0.06);
+        box-shadow: 0 30px 64px rgba(15, 81, 50, 0.08);
+        overflow: hidden;
+    }
+
+    .feature-stage::before {
+        content: '';
+        position: absolute;
+        top: -120px;
+        right: -120px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, rgba(32, 201, 151, 0.14), rgba(32, 201, 151, 0));
+        pointer-events: none;
+    }
+
     .feature-box {
-        border-radius: 28px;
-        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        padding: 28px;
         height: 100%;
-        background: white;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        border: 1px solid rgba(0,0,0,0.03);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 248, 0.96));
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        border: 1px solid rgba(15, 81, 50, 0.08);
         position: relative;
         overflow: hidden;
         z-index: 1;
+        box-shadow: 0 18px 38px rgba(15, 81, 50, 0.05);
+    }
+
+    .feature-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, rgba(32, 201, 151, 0.95), rgba(15, 81, 50, 0.55));
+        opacity: 0.88;
     }
 
     .feature-box::after {
         content: '';
         position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(135deg, var(--v-primary-soft), transparent);
-        opacity: 0;
+        right: -52px;
+        bottom: -76px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(209, 231, 221, 0.9), rgba(209, 231, 221, 0));
+        opacity: 0.58;
         z-index: -1;
-        transition: opacity 0.4s ease;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .feature-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .feature-tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(15, 81, 50, 0.08);
+        color: var(--v-primary);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .feature-index {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: rgba(15, 81, 50, 0.34);
     }
 
     .feature-box:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 24px 48px rgba(15, 81, 50, 0.08);
+        transform: translateY(-10px);
+        box-shadow: 0 28px 54px rgba(15, 81, 50, 0.12);
+        border-color: rgba(15, 81, 50, 0.14);
     }
 
     .feature-box:hover::after {
-        opacity: 0.3;
+        opacity: 0.9;
+        transform: scale(1.12);
     }
 
     .feature-icon-wrapper {
-        width: 72px;
-        height: 72px;
-        background: var(--v-primary-soft);
-        border-radius: 24px;
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(135deg, rgba(209, 231, 221, 0.96), rgba(255, 255, 255, 0.98));
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        border-radius: 22px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         color: var(--v-primary);
         font-size: 28px;
-        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 14px 28px rgba(15, 81, 50, 0.07);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, color 0.3s ease;
     }
 
     .feature-box:hover .feature-icon-wrapper {
-        transform: scale(1.1) rotate(5deg);
-        background: var(--v-primary);
+        transform: translateY(-2px) scale(1.06) rotate(4deg);
+        background: linear-gradient(135deg, var(--v-primary), var(--v-secondary));
         color: white;
+    }
+
+    .feature-title {
+        font-size: 1.35rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: #183b2b;
+        margin-bottom: 12px;
+    }
+
+    .feature-copy {
+        color: #60726a;
+        line-height: 1.72;
+        margin-bottom: 20px;
+    }
+
+    .feature-foot {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .feature-foot span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(15, 81, 50, 0.08);
+        box-shadow: 0 10px 18px rgba(15, 81, 50, 0.05);
+        color: #234536;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+
+    .feature-foot i {
+        color: var(--v-secondary);
     }
 
     /* PRODUCTS */
@@ -541,12 +654,208 @@
     }
 
     /* SERVICES SUMMARY */
+    .service-stage {
+        position: relative;
+    }
+
     .service-banner {
-        border-radius: 32px;
+        border-radius: 36px;
         overflow: hidden;
         position: relative;
-        height: 300px;
-        transition: all 0.5s ease;
+        height: 100%;
+        min-height: 330px;
+        padding: 28px;
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 28px 56px rgba(17, 24, 39, 0.12);
+        isolation: isolate;
+    }
+
+    .service-banner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 44%, rgba(6, 18, 12, 0.16) 100%);
+        z-index: 0;
+    }
+
+    .service-banner::after {
+        content: '';
+        position: absolute;
+        left: -26px;
+        bottom: -74px;
+        width: 230px;
+        height: 230px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .service-banner--emerald {
+        background: linear-gradient(145deg, #12b886 0%, #109f76 34%, #0b6b52 100%);
+    }
+
+    .service-banner--amber {
+        background: linear-gradient(145deg, #f8b238 0%, #eb920a 34%, #b45309 100%);
+    }
+
+    .service-banner--blue {
+        background: linear-gradient(145deg, #4f8cff 0%, #2f67ed 36%, #1d4ed8 100%);
+    }
+
+    .service-banner--offset {
+        margin-top: 48px;
+    }
+
+    .service-banner-body {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        min-height: 100%;
+        text-align: center;
+    }
+
+    .service-banner-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .service-icon-orb {
+        width: 84px;
+        height: 84px;
+        padding: 10px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .service-icon-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+    }
+
+    .service-icon-inner i {
+        font-size: 1.9rem;
+    }
+
+    .service-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .service-badge--sun {
+        background: #facc15;
+        color: #4b3c03;
+    }
+
+    .service-badge--mint {
+        background: #0f8d61;
+        color: #fff;
+    }
+
+    .service-badge--rose {
+        background: #ef4444;
+        color: #fff;
+    }
+
+    .service-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .service-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        font-weight: 800;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+        color: #fff;
+        margin-bottom: 0;
+    }
+
+    .service-description {
+        max-width: 260px;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.84);
+    }
+
+    .service-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .service-meta-item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 13px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .service-watermark {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.12);
+        line-height: 1;
+        z-index: 0;
+        pointer-events: none;
+        transition: transform 0.45s ease;
+    }
+
+    .service-watermark--bottom-right {
+        right: -24px;
+        bottom: -34px;
+        font-size: 11rem;
+        transform: rotate(-14deg);
+    }
+
+    .service-watermark--top-left {
+        left: -24px;
+        top: -18px;
+        font-size: 10rem;
+        transform: rotate(12deg);
+    }
+
+    .service-watermark--top-right {
+        right: -18px;
+        top: -18px;
+        font-size: 10rem;
+        transform: rotate(-12deg);
     }
 
     .service-img {
@@ -558,6 +867,23 @@
 
     .service-banner:hover .service-img {
         transform: scale(1.1);
+    }
+
+    .service-banner:hover {
+        transform: translateY(-10px) scale(1.01);
+        box-shadow: 0 34px 62px rgba(15, 81, 50, 0.18);
+    }
+
+    .service-banner:hover .service-watermark--bottom-right {
+        transform: rotate(-10deg) translate(-6px, -8px);
+    }
+
+    .service-banner:hover .service-watermark--top-left {
+        transform: rotate(8deg) translate(6px, 8px);
+    }
+
+    .service-banner:hover .service-watermark--top-right {
+        transform: rotate(-8deg) translate(-6px, 8px);
     }
 
     .service-overlay {
@@ -700,6 +1026,19 @@
             min-height: auto;
         }
 
+        .feature-stage {
+            padding: 22px;
+            border-radius: 34px;
+        }
+
+        .service-banner--offset {
+            margin-top: 0;
+        }
+
+        .service-banner {
+            min-height: 300px;
+        }
+
         .hero-visual {
             padding: 0;
         }
@@ -724,6 +1063,67 @@
     @media (max-width: 767.98px) {
         .hero-wrapper {
             padding: calc(var(--site-header-offset, 92px) + 42px) 0 92px;
+        }
+
+        .feature-stage {
+            padding: 16px;
+            border-radius: 28px;
+        }
+
+        .feature-box {
+            padding: 22px;
+            border-radius: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+        }
+
+        .feature-copy {
+            font-size: 0.94rem;
+            line-height: 1.66;
+        }
+
+        .feature-foot span {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .service-banner {
+            min-height: auto;
+            padding: 24px;
+            border-radius: 28px;
+        }
+
+        .service-banner-body {
+            gap: 20px;
+        }
+
+        .service-title {
+            font-size: 1.95rem;
+        }
+
+        .service-description {
+            max-width: none;
+            font-size: 0.95rem;
+        }
+
+        .service-icon-orb {
+            width: 74px;
+            height: 74px;
+            border-radius: 22px;
+        }
+
+        .service-icon-inner {
+            border-radius: 16px;
+        }
+
+        .service-icon-inner i {
+            font-size: 1.7rem;
+        }
+
+        .service-meta-item {
+            width: 100%;
         }
 
         .hero-content .row {
@@ -769,6 +1169,33 @@
     @media (max-width: 575.98px) {
         .hero-wrapper {
             padding: calc(var(--site-header-offset, 84px) + 26px) 0 78px;
+        }
+
+        .feature-stage {
+            padding: 14px;
+            border-radius: 24px;
+        }
+
+        .feature-card-top {
+            margin-bottom: 14px;
+        }
+
+        .feature-tag {
+            font-size: 0.68rem;
+        }
+
+        .service-banner {
+            padding: 20px;
+        }
+
+        .service-title {
+            font-size: 1.78rem;
+        }
+
+        .service-watermark--bottom-right,
+        .service-watermark--top-left,
+        .service-watermark--top-right {
+            font-size: 8rem;
         }
 
         .hero-title {
@@ -919,41 +1346,71 @@
 
 <!-- Features Section -->
 <div class="container py-5 mt-5">
-    <div class="row g-4">
-        <div class="col-md-6 col-lg-3 animate-up">
-            <div class="feature-box">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-shipping-fast"></i>
+    <div class="feature-stage">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 animate-up">
+                <div class="feature-box">
+                    <div class="feature-card-top">
+                        <span class="feature-tag">Benefit</span>
+                        <span class="feature-index">01</span>
+                    </div>
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Gratis Ongkir</h4>
+                    <p class="feature-copy mb-0">Nikmati pengiriman gratis untuk setiap pembelanjaan minimal Rp 300.000 ke seluruh wilayah.</p>
+                    <div class="feature-foot">
+                        <span><i class="fas fa-check-circle"></i> Minimal order tertentu</span>
+                    </div>
                 </div>
-                <h4 class="fw-bold mb-3">Gratis Ongkir</h4>
-                <p class="text-muted mb-0">Nikmati pengiriman gratis untuk setiap pembelanjaan minimal Rp 300.000 ke seluruh wilayah.</p>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3 animate-up delay-1">
-            <div class="feature-box">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="col-md-6 col-lg-3 animate-up delay-1">
+                <div class="feature-box">
+                    <div class="feature-card-top">
+                        <span class="feature-tag">Proteksi</span>
+                        <span class="feature-index">02</span>
+                    </div>
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Aman & Nyaman</h4>
+                    <p class="feature-copy mb-0">Transaksi terlindungi 100% dengan sistem pembayaran terenkripsi yang canggih.</p>
+                    <div class="feature-foot">
+                        <span><i class="fas fa-lock"></i> Checkout lebih terlindungi</span>
+                    </div>
                 </div>
-                <h4 class="fw-bold mb-3">Aman & Nyaman</h4>
-                <p class="text-muted mb-0">Transaksi terlindungi 100% dengan sistem pembayaran terenkripsi yang canggih.</p>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3 animate-up delay-2">
-            <div class="feature-box">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-redo-alt"></i>
+            <div class="col-md-6 col-lg-3 animate-up delay-2">
+                <div class="feature-box">
+                    <div class="feature-card-top">
+                        <span class="feature-tag">Fleksibel</span>
+                        <span class="feature-index">03</span>
+                    </div>
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Garansi Revisi</h4>
+                    <p class="feature-copy mb-0">Kepuasan Anda prioritas kami. Tersedia garansi revisi desain secara cuma-cuma.</p>
+                    <div class="feature-foot">
+                        <span><i class="fas fa-pencil-ruler"></i> Koreksi lebih leluasa</span>
+                    </div>
                 </div>
-                <h4 class="fw-bold mb-3">Garansi Revisi</h4>
-                <p class="text-muted mb-0">Kepuasan Anda prioritas kami. Tersedia garansi revisi desain secara cuma-cuma.</p>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3 animate-up delay-3">
-            <div class="feature-box">
-                <div class="feature-icon-wrapper">
-                    <i class="fas fa-headset"></i>
+            <div class="col-md-6 col-lg-3 animate-up delay-3">
+                <div class="feature-box">
+                    <div class="feature-card-top">
+                        <span class="feature-tag">Responsif</span>
+                        <span class="feature-index">04</span>
+                    </div>
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="feature-title fw-bold">Support 24/7</h4>
+                    <p class="feature-copy mb-0">Tim customer service kami siap membantu kendala Anda kapanpun dan dimanapun.</p>
+                    <div class="feature-foot">
+                        <span><i class="fas fa-bolt"></i> Tim siap bantu cepat</span>
+                    </div>
                 </div>
-                <h4 class="fw-bold mb-3">Support 24/7</h4>
-                <p class="text-muted mb-0">Tim customer service kami siap membantu kendala Anda kapanpun dan dimanapun.</p>
             </div>
         </div>
     </div>
@@ -961,43 +1418,75 @@
 
 <!-- Services Banner -->
 <div class="container py-5">
-    <div class="row g-4">
+    <div class="service-stage">
+        <div class="row g-4 align-items-stretch">
         <div class="col-lg-4">
-            <div class="service-banner shadow-lg d-flex align-items-center justify-content-center p-4 border-0" style="background: linear-gradient(135deg, #10B981, #047857); position: relative; overflow: hidden; border-radius: 32px;">
-                <i class="fas fa-boxes fa-10x" style="position: absolute; right: -30px; bottom: -30px; color: rgba(255,255,255,0.15); transform: rotate(-15deg);"></i>
-                <div class="text-center position-relative z-2">
-                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadow" style="width: 80px; height: 80px;">
-                        <i class="fas fa-boxes text-success fa-2x"></i>
+                <div class="service-banner service-banner--emerald">
+                    <i class="fas fa-boxes service-watermark service-watermark--bottom-right"></i>
+                    <div class="service-banner-body">
+                        <div class="service-banner-top">
+                            <div class="service-icon-orb">
+                                <div class="service-icon-inner">
+                                    <i class="fas fa-boxes text-success"></i>
+                                </div>
+                            </div>
+                            <span class="service-badge service-badge--sun">Tersedia</span>
+                        </div>
+                        <div class="service-copy">
+                            <h3 class="service-title">ATK Lengkap</h3>
+                            <p class="service-description">Solusi alat tulis kantor super lengkap</p>
+                        </div>
+                        <div class="service-meta">
+                            <span class="service-meta-item"><i class="fas fa-store"></i> Stok siap pilih</span>
+                            <span class="service-meta-item"><i class="fas fa-bolt"></i> Checkout lebih cepat</span>
+                        </div>
                     </div>
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill shadow-sm fs-6">Tersedia</span>
-                    <h3 class="fw-bold text-white mb-2">ATK Lengkap</h3>
-                    <p class="text-white opacity-75 mb-0">Solusi alat tulis kantor super lengkap</p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="service-banner shadow-lg d-flex align-items-center justify-content-center p-4 border-0 mt-lg-5" style="background: linear-gradient(135deg, #F59E0B, #B45309); position: relative; overflow: hidden; border-radius: 32px;">
-                <i class="fas fa-image fa-10x" style="position: absolute; left: -20px; top: -10px; color: rgba(255,255,255,0.15); transform: rotate(10deg);"></i>
-                <div class="text-center position-relative z-2">
-                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadow" style="width: 80px; height: 80px;">
-                        <i class="fas fa-image text-warning fa-2x"></i>
+            <div class="col-lg-4">
+                <div class="service-banner service-banner--amber service-banner--offset">
+                    <i class="fas fa-image service-watermark service-watermark--top-left"></i>
+                    <div class="service-banner-body">
+                        <div class="service-banner-top">
+                            <div class="service-icon-orb">
+                                <div class="service-icon-inner">
+                                    <i class="fas fa-image text-warning"></i>
+                                </div>
+                            </div>
+                            <span class="service-badge service-badge--mint">Gratis Kirim</span>
+                        </div>
+                        <div class="service-copy">
+                            <h3 class="service-title">Cetak Banner</h3>
+                            <p class="service-description">Kualitas cetak spanduk revolusioner</p>
+                        </div>
+                        <div class="service-meta">
+                            <span class="service-meta-item"><i class="fas fa-ruler-combined"></i> Ukuran fleksibel</span>
+                            <span class="service-meta-item"><i class="fas fa-palette"></i> Warna lebih hidup</span>
+                        </div>
                     </div>
-                    <span class="badge bg-success text-white mb-3 px-3 py-2 rounded-pill shadow-sm fs-6">Gratis Kirim</span>
-                    <h3 class="fw-bold text-white mb-2">Cetak Banner</h3>
-                    <p class="text-white opacity-75 mb-0">Kualitas cetak spanduk revolusioner</p>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="service-banner shadow-lg d-flex align-items-center justify-content-center p-4 border-0" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); position: relative; overflow: hidden; border-radius: 32px;">
-                <i class="fas fa-book fa-10x" style="position: absolute; right: -20px; top: -20px; color: rgba(255,255,255,0.15); transform: rotate(-10deg);"></i>
-                <div class="text-center position-relative z-2">
-                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 shadow" style="width: 80px; height: 80px;">
-                        <i class="fas fa-book text-primary fa-2x"></i>
+            <div class="col-lg-4">
+                <div class="service-banner service-banner--blue">
+                    <i class="fas fa-book service-watermark service-watermark--top-right"></i>
+                    <div class="service-banner-body">
+                        <div class="service-banner-top">
+                            <div class="service-icon-orb">
+                                <div class="service-icon-inner">
+                                    <i class="fas fa-book text-primary"></i>
+                                </div>
+                            </div>
+                            <span class="service-badge service-badge--rose">Pro Quality</span>
+                        </div>
+                        <div class="service-copy">
+                            <h3 class="service-title">Cetak Buku</h3>
+                            <p class="service-description">Hasil terjilid sempurna & jaminan mutu</p>
+                        </div>
+                        <div class="service-meta">
+                            <span class="service-meta-item"><i class="fas fa-layer-group"></i> Finishing lebih rapi</span>
+                            <span class="service-meta-item"><i class="fas fa-medal"></i> Kualitas konsisten</span>
+                        </div>
                     </div>
-                    <span class="badge bg-danger text-white mb-3 px-3 py-2 rounded-pill shadow-sm fs-6">Pro Quality</span>
-                    <h3 class="fw-bold text-white mb-2">Cetak Buku</h3>
-                    <p class="text-white opacity-75 mb-0">Hasil terjilid sempurna & jaminan mutu</p>
                 </div>
             </div>
         </div>
