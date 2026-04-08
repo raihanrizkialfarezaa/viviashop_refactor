@@ -170,6 +170,13 @@
         color: #fff;
         font-weight: 800;
         box-shadow: 0 14px 24px rgba(15,81,50,0.14);
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .legacy-products-sidebar button:hover {
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 30px rgba(15,81,50,0.18);
     }
 
     .legacy-products-toolbar {
@@ -198,6 +205,14 @@
         align-items: center;
         gap: 12px;
         flex-wrap: wrap;
+    }
+
+    .legacy-products-toolbar-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 
     .legacy-products-tabs {
@@ -293,6 +308,11 @@
         text-decoration: none;
         box-shadow: 0 12px 22px rgba(15,81,50,0.08);
         transition: transform 0.22s ease;
+    }
+
+    .legacy-products-list-actions a:not(.legacy-products-list-cta) {
+        flex: 0 0 44px;
+        flex-shrink: 0;
     }
 
     .legacy-products-actions a:hover,
@@ -425,6 +445,11 @@
             align-items: stretch;
         }
 
+        .legacy-products-toolbar-controls {
+            width: 100%;
+            justify-content: space-between;
+        }
+
         .legacy-products-list-card {
             grid-template-columns: 1fr;
         }
@@ -474,6 +499,11 @@
             align-items: stretch;
         }
 
+        .legacy-products-toolbar-controls {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
         .legacy-products-tabs {
             width: 100%;
             justify-content: center;
@@ -493,6 +523,10 @@
 
         .legacy-products-list-actions a {
             flex: 1 1 auto;
+        }
+
+        .legacy-products-list-actions a:not(.legacy-products-list-cta) {
+            flex: 0 0 48px;
         }
 
         .legacy-products-list-cta {
@@ -583,11 +617,11 @@
 
 				<div class="col-lg-8 col-xl-9">
 					<div class="legacy-products-shell">
-						<div class="legacy-products-toolbar">
+                        <div class="legacy-products-toolbar">
 							<div class="legacy-products-found">
 								<p><span>{{ count($products) }}</span> product tampil di halaman ini dari total <span>{{ $products->total() }}</span> produk.</p>
 							</div>
-							<div class="d-flex align-items-center gap-3 flex-wrap justify-content-end">
+                            <div class="legacy-products-toolbar-controls d-flex align-items-center gap-3 flex-wrap justify-content-end">
 								<div class="legacy-products-sort">
 									<label>Sort By</label>
 									<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value)" name="sort">

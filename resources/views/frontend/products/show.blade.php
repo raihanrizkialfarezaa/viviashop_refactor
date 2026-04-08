@@ -384,6 +384,18 @@
         .quickview-plus-minus {
             grid-template-columns: 1fr;
         }
+
+        .quickview-btn-wishlist a {
+            justify-content: center;
+            gap: 10px;
+            padding: 0 18px;
+        }
+
+        .quickview-btn-wishlist a::after {
+            content: 'Wishlist';
+            font-size: 0.92rem;
+            line-height: 1;
+        }
     }
 
     @media (max-width: 575px) {

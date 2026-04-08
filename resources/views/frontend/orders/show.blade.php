@@ -486,6 +486,17 @@
 			.order-page-header {
 				border-radius: 0 0 28px 28px;
 			}
+
+			.order-summary-row,
+			.order-summary-total {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.order-summary-row strong,
+			.order-summary-row span {
+				text-align: left;
+			}
 		}
 	</style>
 

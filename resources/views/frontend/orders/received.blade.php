@@ -524,6 +524,31 @@
 		.order-received-header {
 			border-radius: 0 0 28px 28px;
 		}
+
+		.received-summary-row,
+		.received-summary-total {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.received-summary-row strong,
+		.received-summary-row span {
+			text-align: left;
+		}
+
+		.attachment-thumb {
+			width: 100%;
+			height: 180px;
+		}
+
+		.attachment-actions {
+			width: 100%;
+			flex-direction: column;
+		}
+
+		.attachment-actions a {
+			width: 100%;
+		}
 	}
 </style>
 @endpush

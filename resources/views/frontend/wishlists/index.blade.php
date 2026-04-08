@@ -290,15 +290,24 @@
 		border: 1px solid rgba(15,81,50,0.12);
 		background: rgba(255,255,255,0.96);
 		color: #0f5132;
+		overflow: hidden;
+		padding: 0;
 		box-shadow: 0 12px 22px rgba(15,81,50,0.06);
 	}
 
 	.wishlist-secondary button {
+		width: 100%;
+		min-height: 48px;
 		border: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
 		background: transparent;
 		color: inherit;
 		font-weight: 800;
-		padding: 0;
+		padding: 0 16px;
+		border-radius: inherit;
 	}
 
 	.wishlist-empty-state {
@@ -375,6 +384,11 @@
 		.wishlist-action,
 		.wishlist-secondary {
 			width: 100%;
+		}
+
+		.wishlist-item-meta span {
+			width: 100%;
+			justify-content: flex-start;
 		}
 	}
 </style>

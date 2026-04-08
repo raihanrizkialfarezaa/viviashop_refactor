@@ -271,7 +271,7 @@
         .detail-page-header {
             position: relative;
             margin-top: 18px;
-            padding: 5.5rem 0 6.5rem;
+            padding: 4rem 0 5.5rem;
             border-radius: 0 0 42px 42px;
             background:
                 radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 26%),
@@ -328,6 +328,15 @@
 
         .detail-page-header .breadcrumb-item.active {
             color: #fff !important;
+        }
+
+        .detail-page-header .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .detail-page-header h1 {
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: -0.02em;
         }
 
         .detail-stage {
@@ -928,7 +937,7 @@
 
         @media (max-width: 991.98px) {
             .detail-page-header {
-                padding: 4.8rem 0 5.8rem;
+                padding: 3.5rem 0 4.5rem;
                 border-radius: 0 0 32px 32px;
             }
 
@@ -952,7 +961,7 @@
         @media (max-width: 767.98px) {
             .detail-page-header {
                 margin-top: 14px;
-                padding: 4.2rem 0 5rem;
+                padding: 3rem 0 4rem;
                 border-radius: 0 0 26px 26px;
             }
 
@@ -972,6 +981,10 @@
             .summary-info-grid {
                 grid-template-columns: 1fr;
             }
+
+			.detail-tabs-shell .nav-tabs {
+				flex-direction: column;
+			}
 
             .detail-tabs-shell .nav-tabs .nav-link {
                 width: 100%;
@@ -996,6 +1009,15 @@
                 flex-direction: column;
             }
 
+			.summary-topbar {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.summary-topbar .info-badge {
+				align-self: flex-start;
+			}
+
             .summary-card .product-thumb {
                 width: 88px;
                 height: 88px;
@@ -1005,6 +1027,13 @@
                 min-height: 54px;
             }
         }
+
+        @media (max-width: 419.98px) {
+            .variant-option {
+                width: 100%;
+                min-width: 100%;
+            }
+        }
     </style>
     
     <div class="container-fluid page-header detail-page-header py-5">
@@ -1012,7 +1041,6 @@
             <div class="detail-hero-content text-center">
                 <span class="detail-hero-kicker"><i class="fas fa-gem"></i> Detail Produk</span>
                 <h1 class="text-white display-5 fw-bold mb-3">{{ $parentProduct->name }}</h1>
-                <p class="text-white-50 lead mb-3">Tampilan produk dibuat lebih fokus pada visual, spesifikasi, dan keputusan beli agar pengunjung lebih yakin saat berbelanja.</p>
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('shop') }}">Products</a></li>

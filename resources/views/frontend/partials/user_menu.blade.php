@@ -18,7 +18,7 @@
 
         .user-sidebar.sticky {
             position: sticky;
-            top: 6rem;
+            top: var(--sticky-safe-top, 6rem);
         }
 
         .user-sidebar-card {
@@ -150,6 +150,11 @@
             background: rgba(255,255,255,0.9);
         }
 
+        .user-sidebar-link.active small,
+        .user-sidebar-link:hover small {
+            color: var(--account-green-800);
+        }
+
         .user-sidebar-logout {
             margin-top: 1rem;
             width: 100%;
@@ -164,6 +169,7 @@
         }
 
         .user-sidebar-logout:hover {
+            color: #fff;
             transform: translateY(-1px);
             box-shadow: 0 22px 34px rgba(15, 81, 50, 0.18);
         }

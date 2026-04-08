@@ -181,6 +181,7 @@
     .btn-hero-secondary:hover {
         background: #fff;
         color: var(--v-primary);
+        text-decoration: none;
         transform: translateY(-4px);
         box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
     }
@@ -265,6 +266,7 @@
         transform: translateY(-4px) scale(1.02);
         box-shadow: 0 16px 32px rgba(15, 81, 50, 0.3);
         color: white;
+        text-decoration: none;
     }
 
     .btn-glass {
@@ -835,6 +837,7 @@
 
         .product-quick-link:hover {
             color: var(--v-primary);
+            text-decoration: none;
         }
     }
 
@@ -930,16 +933,19 @@
         padding-top: 18px;
         border-top: 1px solid rgba(15, 81, 50, 0.08);
         display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
+        flex-direction: column;
         gap: 14px;
     }
 
     .product-price-stack {
-        min-width: 0;
         display: flex;
-        flex-direction: column;
-        gap: 4px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(209,231,221,0.5), rgba(236,253,245,0.8));
+        border: 1px solid rgba(15,81,50,0.08);
     }
 
     .product-price-label {
@@ -952,18 +958,19 @@
 
     .product-price {
         font-family: 'Raleway', sans-serif;
-        font-size: 1.58rem;
+        font-size: 1.35rem;
         font-weight: 800;
         color: var(--v-primary);
         line-height: 1;
         letter-spacing: -0.03em;
+        white-space: nowrap;
     }
 
     .product-actions {
         display: flex;
         align-items: center;
         gap: 10px;
-        flex-shrink: 0;
+        width: 100%;
     }
 
     .product-detail-link {
@@ -985,6 +992,7 @@
     .product-detail-link:hover {
         color: var(--v-primary);
         background: rgba(209, 231, 221, 0.72);
+        text-decoration: none;
         transform: translateY(-2px);
     }
 
@@ -1262,7 +1270,7 @@
 
     /* INSTAGRAM SECTION */
     .social-section {
-        background: var(--v-primary);
+        background: linear-gradient(135deg, var(--v-primary) 0%, #145a38 50%, var(--v-secondary) 100%);
         border-radius: 40px;
         padding: 80px 48px;
         margin: 100px 0;
@@ -1276,9 +1284,25 @@
         position: absolute;
         top: -50%; right: -20%;
         width: 800px; height: 800px;
-        background: radial-gradient(circle, var(--v-secondary) 0%, transparent 60%);
+        background: radial-gradient(circle, rgba(32,201,151,0.3) 0%, transparent 60%);
         opacity: 0.5;
         border-radius: 50%;
+    }
+
+    .social-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.25);
+        color: #fff;
+        font-size: 0.88rem;
+        font-weight: 700;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        margin-bottom: 1.5rem;
     }
 
     .insta-card {
@@ -1295,6 +1319,25 @@
     }
 
     /* CATALOGUE & STATS */
+    .catalog-section-header {
+        margin-bottom: 3rem;
+    }
+
+    .catalog-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 1rem;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(15,81,50,0.06);
+        color: var(--v-primary);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
     .stat-card {
         background: white;
         border-radius: 32px;
@@ -1318,27 +1361,143 @@
         margin-bottom: 8px;
     }
 
+    .stat-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .stat-icon--green { background: rgba(15,81,50,0.08); color: var(--v-primary); }
+    .stat-icon--teal { background: rgba(32,201,151,0.1); color: #0d9668; }
+    .stat-icon--amber { background: rgba(245,158,11,0.1); color: #b45309; }
+    .stat-icon--blue { background: rgba(59,130,246,0.1); color: #1d4ed8; }
+
     .catalog-wrapper {
         background: white;
         border-radius: 40px;
         padding: 16px;
         box-shadow: 0 40px 80px rgba(0,0,0,0.05);
+        overflow: hidden;
+    }
+
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 24px 20px;
+    }
+
+    .catalog-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--v-dark);
+        margin-bottom: 4px;
+    }
+
+    .catalog-subtitle {
+        color: #72857d;
+        font-size: 0.92rem;
+        margin: 0;
+    }
+
+    .catalog-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--v-primary), var(--v-secondary));
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 8px 24px rgba(15,81,50,0.2);
+        transition: all 0.3s ease;
+    }
+
+    .catalog-download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(15,81,50,0.28);
+        color: #fff;
+    }
+
+    .catalog-iframe-wrap {
+        border-radius: 24px;
+        overflow: hidden;
+        height: 500px;
+        background: var(--v-light);
+        border: 1px solid rgba(15,81,50,0.06);
     }
 
     /* LOCATION */
+    .location-section {
+        position: relative;
+    }
+
+    .location-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 1rem;
+        padding: 9px 14px;
+        border-radius: 999px;
+        background: rgba(15,81,50,0.06);
+        color: var(--v-primary);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
     .location-wrapper {
         background: white;
         border-radius: 40px;
         padding: 48px;
         box-shadow: 0 24px 64px rgba(0,0,0,0.04);
+        border: 1px solid rgba(15,81,50,0.06);
+    }
+
+    .location-map-col {
+        position: relative;
     }
 
     .map-container {
         border-radius: 32px;
         overflow: hidden;
-        border: 8px solid var(--v-light);
+        border: 4px solid var(--v-primary-soft);
         height: 100%;
         min-height: 500px;
+        box-shadow: 0 24px 48px rgba(15,81,50,0.1);
+    }
+
+    .map-overlay-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        color: var(--v-primary);
+        font-weight: 700;
+        font-size: 0.85rem;
+    }
+
+    .map-overlay-badge i {
+        color: #ef4444;
     }
 
     .contact-item {
@@ -1348,23 +1507,72 @@
         padding: 20px;
         border-radius: 24px;
         background: var(--v-light);
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         transition: all 0.3s ease;
+        border: 1px solid transparent;
     }
 
     .contact-item:hover {
         background: var(--v-primary-soft);
         transform: translateX(8px);
+        border-color: rgba(15,81,50,0.1);
     }
 
     .contact-icon {
-        width: 56px; height: 56px;
+        width: 52px; height: 52px;
         background: white;
-        border-radius: 50%;
+        border-radius: 16px;
         display: flex; align-items: center; justify-content: center;
         color: var(--v-primary);
-        font-size: 24px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        font-size: 20px;
+        box-shadow: 0 8px 16px rgba(15,81,50,0.08);
+        flex-shrink: 0;
+    }
+
+    .contact-cta-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 2rem;
+    }
+
+    .contact-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        flex: 1;
+    }
+
+    .contact-cta--primary {
+        background: linear-gradient(135deg, var(--v-primary), var(--v-secondary));
+        color: #fff;
+        border: none;
+        box-shadow: 0 8px 24px rgba(15,81,50,0.2);
+    }
+
+    .contact-cta--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(15,81,50,0.28);
+        color: #fff;
+    }
+
+    .contact-cta--outline {
+        background: transparent;
+        color: var(--v-primary);
+        border: 2px solid rgba(15,81,50,0.18);
+    }
+
+    .contact-cta--outline:hover {
+        background: var(--v-primary-soft);
+        border-color: var(--v-primary);
+        transform: translateY(-2px);
+        color: var(--v-primary);
     }
 
     /* ANIMATIONS */
@@ -1509,9 +1717,11 @@
         }
 
         .product-footer {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 14px;
+            gap: 12px;
+        }
+
+        .product-price-stack {
+            padding: 10px 14px;
         }
 
         .product-actions {
@@ -1681,7 +1891,7 @@
         }
 
         .product-price {
-            font-size: 1.42rem;
+            font-size: 1.2rem;
         }
 
         .product-actions {
@@ -1815,6 +2025,133 @@
 
         .carousel-item img {
             height: 280px;
+        }
+    }
+
+    /* RESPONSIVE: Social, Catalog, Location sections */
+    @media (max-width: 991.98px) {
+        .social-section {
+            padding: 60px 32px;
+            margin: 60px 0;
+            border-radius: 32px;
+        }
+
+        .location-wrapper {
+            padding: 36px;
+            border-radius: 32px;
+        }
+
+        .map-container {
+            min-height: 380px;
+        }
+
+        .catalog-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .social-section {
+            padding: 48px 24px;
+            margin: 48px 0;
+            border-radius: 28px;
+        }
+
+        .social-section .display-4 {
+            font-size: 2rem;
+        }
+
+        .social-section .fs-5 {
+            font-size: 1rem !important;
+        }
+
+        .insta-card {
+            border-radius: 24px;
+            padding: 18px;
+        }
+
+        .location-wrapper {
+            padding: 28px;
+            border-radius: 28px;
+        }
+
+        .map-container {
+            min-height: 320px;
+            border-radius: 24px;
+        }
+
+        .contact-cta-group {
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+        }
+
+        .stat-card {
+            padding: 28px 18px;
+            border-radius: 24px;
+        }
+
+        .catalog-wrapper {
+            border-radius: 28px;
+        }
+
+        .catalog-iframe-wrap {
+            height: 380px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .social-section {
+            padding: 36px 20px;
+            border-radius: 24px;
+        }
+
+        .social-kicker {
+            font-size: 0.8rem;
+            padding: 8px 16px;
+        }
+
+        .location-wrapper {
+            padding: 22px;
+            border-radius: 24px;
+        }
+
+        .contact-item {
+            padding: 16px;
+            gap: 14px;
+            border-radius: 18px;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            font-size: 16px;
+            border-radius: 14px;
+        }
+
+        .map-container {
+            min-height: 280px;
+            border-radius: 20px;
+        }
+
+        .map-overlay-badge {
+            top: 14px;
+            left: 14px;
+            padding: 10px 14px;
+            font-size: 0.78rem;
+        }
+
+        .catalog-iframe-wrap {
+            height: 320px;
+        }
+
+        .catalog-download-btn {
+            width: 100%;
+            justify-content: center;
         }
     }
 </style>
@@ -2153,14 +2490,14 @@
     <div class="social-section shadow-lg">
         <div class="row align-items-center position-relative z-2">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <div class="d-inline-flex bg-white bg-opacity-25 rounded-pill px-4 py-2 mb-4">
-                    <i class="fab fa-instagram fs-5 me-2"></i> Join Our Community
+                <div class="social-kicker">
+                    <i class="fab fa-instagram fs-5"></i> Komunitas Kami
                 </div>
                 <h2 class="display-4 fw-bold mb-4 text-white">Ikuti Perjalanan <br>Visual Kami</h2>
-                <p class="fs-5 text-white opacity-75 mb-5 pe-lg-5">
+                <p class="fs-5 mb-5 pe-lg-5" style="color: rgba(255,255,255,0.8);">
                     Dapatkan inspirasi desain terbaru, tips cetak memukau, dan promo eksklusif yang hanya ada di Instagram @vivia_printshop.
                 </p>
-                <a href="https://www.instagram.com/vivia_printshop/" target="_blank" class="btn btn-light rounded-pill px-5 py-3 fw-bold fs-5 text-primary shadow-lg" style="transition: transform 0.3s;">
+                <a href="https://www.instagram.com/vivia_printshop/" target="_blank" class="btn btn-light rounded-pill px-5 py-3 fw-bold fs-5 shadow-lg" style="color: var(--v-primary); transition: transform 0.3s;">
                     <i class="fab fa-instagram me-2"></i> Follow @vivia_printshop
                 </a>
             </div>
@@ -2179,19 +2516,24 @@
 
 <!-- Digital Catalog & Stats -->
 <div class="container py-5">
+    <div class="catalog-section-header text-center">
+        <span class="catalog-kicker"><i class="fas fa-book-open"></i> Katalog & Statistik</span>
+        <h2 class="title-gradient" style="font-size: clamp(2rem, 4vw, 2.8rem);">Katalog Digital</h2>
+        <p class="text-muted mx-auto" style="max-width: 540px;">Eksplor produk lengkap kami dengan katalog digital interaktif dan lihat pencapaian kami.</p>
+    </div>
     <div class="row g-5">
         <div class="col-lg-7">
             <div class="catalog-wrapper">
-                <div class="d-flex justify-content-between align-items-center mb-4 px-4 pt-4">
+                <div class="catalog-header">
                     <div>
-                        <h3 class="fw-bold mb-1">Katalog Digital</h3>
-                        <p class="text-muted mb-0">Eksplor produk lengkap kami</p>
+                        <h3 class="catalog-title">Katalog Produk</h3>
+                        <p class="catalog-subtitle">Lihat semua produk dalam satu dokumen</p>
                     </div>
-                    <a href="https://drive.google.com/uc?export=download&id=1G3sq9BUgN4RaRBgVOs6iTSASHrYHB6Ij" target="_blank" class="btn btn-primary rounded-pill px-4 py-2 fw-bold bg-dark border-0">
-                        <i class="fas fa-download me-2"></i> Unduh PDF
+                    <a href="https://drive.google.com/uc?export=download&id=1G3sq9BUgN4RaRBgVOs6iTSASHrYHB6Ij" target="_blank" class="catalog-download-btn">
+                        <i class="fas fa-download"></i> Unduh PDF
                     </a>
                 </div>
-                <div style="border-radius: 24px; overflow: hidden; height: 500px; background: var(--v-light);">
+                <div class="catalog-iframe-wrap">
                     <iframe class="w-100 h-100" 
                             src="https://drive.google.com/file/d/1G3sq9BUgN4RaRBgVOs6iTSASHrYHB6Ij/preview?usp=sharing" 
                             style="border: none;">
@@ -2203,28 +2545,28 @@
             <div class="row g-4">
                 <div class="col-sm-6 text-center">
                     <div class="stat-card h-100">
-                        <div class="text-primary mb-3"><i class="fas fa-boxes fa-3x"></i></div>
+                        <div class="stat-icon stat-icon--green"><i class="fas fa-boxes"></i></div>
                         <div class="stat-number">500+</div>
                         <div class="text-muted fw-semibold">Produk Berkualitas</div>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
                     <div class="stat-card h-100">
-                        <div class="text-success mb-3"><i class="fas fa-layer-group fa-3x"></i></div>
+                        <div class="stat-icon stat-icon--teal"><i class="fas fa-layer-group"></i></div>
                         <div class="stat-number">50+</div>
                         <div class="text-muted fw-semibold">Kategori Tersedia</div>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
                     <div class="stat-card h-100">
-                        <div class="text-warning mb-3"><i class="fas fa-face-smile fa-3x"></i></div>
+                        <div class="stat-icon stat-icon--amber"><i class="fas fa-face-smile"></i></div>
                         <div class="stat-number">1K+</div>
                         <div class="text-muted fw-semibold">Pelanggan Puas</div>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
                     <div class="stat-card h-100">
-                        <div class="text-info mb-3"><i class="fas fa-clock fa-3x"></i></div>
+                        <div class="stat-icon stat-icon--blue"><i class="fas fa-clock"></i></div>
                         <div class="stat-number">24/7</div>
                         <div class="text-muted fw-semibold">Layanan Support</div>
                     </div>
@@ -2233,10 +2575,10 @@
             
             <div class="mt-4 p-4 text-white rounded-4 shadow-sm" style="background: linear-gradient(135deg, var(--v-primary), var(--v-secondary)); background-size: 200% 200%; animation: gradient 5s ease infinite;">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-motorcycle fa-2x me-3 opacity-75"></i>
+                    <i class="fas fa-motorcycle fa-2x me-3" style="color: rgba(255,255,255,0.9);"></i>
                     <div>
                         <h5 class="fw-bold mb-1">Akses Mudah!</h5>
-                        <p class="mb-0 small opacity-75">Lokasi nyaman untuk semua kendaraan.</p>
+                        <p class="mb-0 small" style="color: rgba(255,255,255,0.8);">Lokasi nyaman untuk semua kendaraan.</p>
                     </div>
                 </div>
             </div>
@@ -2245,18 +2587,18 @@
 </div>
 
 <!-- Location Info -->
-<div class="container py-5 my-5">
+<div class="container py-5 my-5 location-section">
     <div class="location-wrapper">
         <div class="row g-5">
             <div class="col-lg-5">
-                <span class="text-primary fw-bold text-uppercase tracking-wider">Kunjungi Kami</span>
-                <h2 class="display-6 fw-bold title-gradient mt-2 mb-4">Temukan VIVIA PrintShop</h2>
-                <p class="text-muted fs-5 mb-5">Rasakan langsung kualitas produk kami dengan pelayanan prima dari staf ahli yang siap membantu Anda.</p>
+                <span class="location-kicker"><i class="fas fa-map-marker-alt"></i> Lokasi Kami</span>
+                <h2 class="title-gradient mt-2 mb-3" style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800;">Temukan VIVIA PrintShop</h2>
+                <p class="text-muted mb-4" style="font-size: 1.05rem; line-height: 1.7;">Rasakan langsung kualitas produk kami dengan pelayanan prima dari staf ahli yang siap membantu Anda.</p>
                 
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div>
-                        <h6 class="fw-bold mb-1">Alamat Store</h6>
+                        <h6 class="fw-bold mb-1" style="color: var(--v-dark);">Alamat Store</h6>
                         <p class="text-muted mb-0 small">Tebu Ireng IV Nomor 38, Cukir, Diwek, Kab. Jombang, Jawa Timur 61471</p>
                     </div>
                 </div>
@@ -2264,7 +2606,7 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-phone"></i></div>
                     <div>
-                        <h6 class="fw-bold mb-1">Telepon & WhatsApp</h6>
+                        <h6 class="fw-bold mb-1" style="color: var(--v-dark);">Telepon & WhatsApp</h6>
                         <p class="text-muted mb-0 small">{{ optional($setting)->telepon ?? '+62 812 3456 7890' }}</p>
                     </div>
                 </div>
@@ -2272,7 +2614,7 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <div>
-                        <h6 class="fw-bold mb-1">Alamat Surat</h6>
+                        <h6 class="fw-bold mb-1" style="color: var(--v-dark);">Alamat Surat</h6>
                         <p class="text-muted mb-0 small">{{ optional($setting)->email ?? 'info@vivia.com' }}</p>
                     </div>
                 </div>
@@ -2280,26 +2622,29 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-clock"></i></div>
                     <div>
-                        <h6 class="fw-bold mb-1">Jam Buka</h6>
+                        <h6 class="fw-bold mb-1" style="color: var(--v-dark);">Jam Buka</h6>
                         <p class="text-muted mb-0 small">Senin - Sabtu: 08:00 - 17:00 WIB</p>
                     </div>
                 </div>
 
-                <div class="d-flex gap-3 mt-5">
+                <div class="contact-cta-group">
                     @php
                         $rawPhone = optional($setting)->telepon ?? '081234567890';
                         $waPhone = preg_replace('/^0/', '62', $rawPhone);
                     @endphp
-                    <a href="https://wa.me/{{ $waPhone }}" target="_blank" class="btn btn-dark rounded-pill px-4 py-3 fw-bold flex-grow-1 shadow-sm">
-                        <i class="fab fa-whatsapp me-2 fs-5"></i> Chat Kami
+                    <a href="https://wa.me/{{ $waPhone }}" target="_blank" class="contact-cta contact-cta--primary">
+                        <i class="fab fa-whatsapp fs-5"></i> Chat Kami
                     </a>
-                    <a href="{{ optional($setting)->maps_url ?? 'https://maps.app.goo.gl/FQkhHuk1vnFZzcHg8?g_st=aw' }}" target="_blank" class="btn btn-outline-dark rounded-pill px-4 py-3 fw-bold flex-grow-1">
-                        <i class="fas fa-map me-2"></i> Rute Lokasi
+                    <a href="{{ optional($setting)->maps_url ?? 'https://maps.app.goo.gl/FQkhHuk1vnFZzcHg8?g_st=aw' }}" target="_blank" class="contact-cta contact-cta--outline">
+                        <i class="fas fa-directions"></i> Rute Lokasi
                     </a>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7 location-map-col">
                 <div class="map-container shadow-sm position-relative">
+                    <div class="map-overlay-badge">
+                        <i class="fas fa-map-pin"></i> VIVIA PrintShop
+                    </div>
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.6902460456313!2d112.2357296745512!3d-7.608646375209187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7841556bd5c5bb%3A0x4517452691764b02!2sVIVIA%20PrintShop!5e0!3m2!1sid!2sid!4v1751760890529!5m2!1sid!2sid"
                         width="100%" 

@@ -201,6 +201,18 @@
         .legacy-quickview-shell .quickview-plus-minus {
             grid-template-columns: 1fr;
         }
+
+        .legacy-quickview-shell .quickview-btn-wishlist a {
+            justify-content: center;
+            gap: 10px;
+            padding: 0 18px;
+        }
+
+        .legacy-quickview-shell .quickview-btn-wishlist a::after {
+            content: 'Wishlist';
+            font-size: 0.92rem;
+            line-height: 1;
+        }
     }
 </style>
 @endonce

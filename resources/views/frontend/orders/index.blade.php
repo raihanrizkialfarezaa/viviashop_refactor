@@ -249,6 +249,13 @@
 			font-weight: 800;
 			letter-spacing: 0.03em;
 			box-shadow: 0 14px 24px rgba(15,81,50,0.14);
+			transition: transform 0.22s ease, box-shadow 0.22s ease;
+		}
+
+		.orders-toolbar .btn-search:hover {
+			color: #fff;
+			transform: translateY(-2px);
+			box-shadow: 0 20px 30px rgba(15,81,50,0.18);
 		}
 
 		.orders-toolbar .toolbar-selects {
@@ -421,6 +428,16 @@
 			padding: 0;
 		}
 
+		.pagination-wrapper {
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+		}
+
+		.pagination-wrapper::-webkit-scrollbar {
+			display: none;
+		}
+
 		.pagination-wrapper .page-item {
 			display: inline-block;
 		}
@@ -566,6 +583,19 @@
 
 			.orders-toolbar .toolbar-selects {
 				grid-template-columns: 1fr;
+			}
+
+			.orders-toolbar form > .btn-search {
+				width: 100%;
+			}
+
+			.order-actions {
+				flex-direction: column;
+				align-items: stretch;
+			}
+
+			.action-pill {
+				width: 100%;
 			}
 		}
 	</style>

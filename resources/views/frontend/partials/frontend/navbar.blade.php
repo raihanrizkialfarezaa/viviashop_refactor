@@ -314,15 +314,19 @@
 
     .site-cart-badge {
         position: absolute;
-        top: -6px;
-        right: -6px;
+        top: 0;
+        right: 0;
         min-width: 20px;
         height: 20px;
         padding: 0 6px;
         border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         font-size: 0.7rem;
         font-weight: 800;
         letter-spacing: 0;
+        transform: translate(36%, -36%);
         box-shadow: 0 6px 14px rgba(15, 81, 50, 0.22);
         border: 2px solid rgba(255, 255, 255, 0.78);
     }

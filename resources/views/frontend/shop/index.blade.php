@@ -94,6 +94,10 @@
         height: fit-content;
         max-height: calc(100vh - var(--sticky-safe-top, 110px) - 20px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(15,81,50,0.34) rgba(15,81,50,0.08);
         z-index: 50;
         border: 1px solid rgba(40,167,69,0.06);
     }
@@ -1173,7 +1177,7 @@
                                     <i class="fas fa-box me-1"></i>
                                     {{ $products->count() }} produk ditemukan
                                     @if(request('search'))
-                                        <span class="ms-2 badge bg-info bg-opacity-10 text-info">
+                                        <span class="ms-2 badge" style="background: rgba(15,81,50,0.1); color: #0f5132;">
                                             <i class="fas fa-search me-1"></i>
                                             Termasuk hasil pencarian serupa
                                         </span>

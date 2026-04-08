@@ -543,6 +543,21 @@
                 flex-direction: column;
             }
 
+            .checkout-shell-badge,
+            .info-badge {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .order-line-foot {
+                grid-template-columns: 1fr;
+            }
+
+            .order-pill {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
             .total-amount {
                 font-size: 1.7rem;
             }

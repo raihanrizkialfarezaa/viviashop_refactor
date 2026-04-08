@@ -542,6 +542,14 @@
                 font-size: 2rem;
             }
 
+			.cart-panel-head {
+				align-items: stretch;
+			}
+
+			.cart-head-link {
+				width: 100%;
+			}
+
             .cart-line {
                 flex-direction: column;
             }
@@ -555,6 +563,24 @@
 
             .qty-input {
                 max-width: 100%;
+            }
+
+            .cart-table tbody td:last-child {
+                padding-top: 0.95rem;
+            }
+
+            .btn.delete {
+                width: 100%;
+                min-height: 50px;
+                gap: 10px;
+                border-radius: 18px !important;
+            }
+
+            .btn.delete::after {
+                content: 'Hapus Item';
+                color: #b42318;
+                font-size: 0.9rem;
+                font-weight: 800;
             }
         }
     </style>
