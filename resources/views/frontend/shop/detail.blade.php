@@ -79,7 +79,7 @@
             border: 2px solid rgba(255,255,255,0.9);
         }
 
-        .sticky-card { position: sticky; top: 100px; }
+        .sticky-card { position: sticky; top: var(--sticky-safe-top, 100px); }
         
         /* Enhanced visual elements */
         .product-info-header {
@@ -214,7 +214,7 @@
             /* Use pure sticky positioning that follows scroll naturally */
             .summary-card.sticky-card {
                 position: sticky;
-                top: 120px; /* Safe distance below navbar */
+                top: var(--sticky-safe-top, 120px); /* Safe distance below navbar */
                 width: 320px;
                 z-index: 500; /* Below navbar but above content */
                 box-shadow: 0 18px 40px rgba(2,6,23,0.12);
@@ -231,7 +231,7 @@
             .summary-card.fixed-panel {
                 /* Disable fixed positioning completely */
                 position: sticky !important;
-                top: 120px !important;
+                top: var(--sticky-safe-top, 120px) !important;
                 right: auto !important;
                 width: 320px !important;
                 z-index: 500 !important;
@@ -332,7 +332,7 @@
 
         .detail-stage {
             position: relative;
-            margin-top: -72px;
+            margin-top: -74px;
             padding-top: 0 !important;
         }
 
@@ -586,6 +586,7 @@
 
         .variant-panel-head h6 {
             margin: 0;
+            color: #fff;
             font-weight: 800;
         }
 
@@ -733,7 +734,7 @@
         }
 
         .summary-card.sticky-card {
-            top: 124px !important;
+            top: var(--sticky-safe-top, 124px) !important;
             width: auto !important;
             max-width: 360px;
         }
@@ -753,7 +754,19 @@
 
         .summary-topbar h6 {
             margin: 0;
+            color: #fff;
             font-weight: 800;
+        }
+
+        .summary-topbar .info-badge {
+            margin: 0;
+            padding: 0.38rem 0.78rem;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: none;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .summary-header {
@@ -920,7 +933,7 @@
             }
 
             .detail-stage {
-                margin-top: -48px;
+                margin-top: -54px;
             }
 
             .detail-overview-card,
@@ -944,7 +957,7 @@
             }
 
             .detail-stage {
-                margin-top: -36px;
+                margin-top: -40px;
             }
 
             .detail-product-name {
@@ -1625,36 +1638,26 @@
                     const summary = document.querySelector('.summary-card.sticky-card');
                     if (!summary) return;
 
-                    // Skip on mobile
-                    if (window.innerWidth <= 991) return;
-
-                    // Find navbar/header elements
-                    const navbar = document.querySelector('.navbar') || document.querySelector('header') || document.querySelector('.site-header');
-                    const breadcrumb = document.querySelector('.page-header');
-
-                    let offset = 120; // default safe offset
-                    
-                    // Calculate safe distance below navbar
-                    if (navbar) {
-                        const navRect = navbar.getBoundingClientRect();
-                        offset = Math.max(120, navRect.height + 30); // 30px safe margin
-                    }
-                    
-                    // Add breadcrumb height if exists
-                    if (breadcrumb) {
-                        const br = breadcrumb.getBoundingClientRect();
-                        offset += Math.max(0, br.height);
+                    if (window.innerWidth <= 991) {
+                        summary.style.top = '';
+                        summary.style.position = '';
+                        summary.style.zIndex = '';
+                        return;
                     }
 
-                    // Apply sticky top - this makes it follow scroll naturally
+                    const siteHeader = document.querySelector('[data-site-header]') || document.querySelector('.site-header') || document.querySelector('.navbar') || document.querySelector('header');
+                    let offset = 116;
+
+                    if (siteHeader) {
+                        const navRect = siteHeader.getBoundingClientRect();
+                        offset = Math.max(108, Math.round(navRect.bottom + 14));
+                    }
+
                     summary.style.top = offset + 'px';
                     summary.style.position = 'sticky';
-                    summary.style.zIndex = '500'; // Safe z-index below navbar
-                    
-                    // Remove any fixed positioning classes
+                    summary.style.zIndex = '500';
                     summary.classList.remove('fixed-panel');
                     summary.classList.add('sticky-card');
-                    
                 } catch (e) {
                     console.warn('adjustStickySummaryTop failed', e);
                 }

@@ -90,9 +90,9 @@
         box-shadow: 0 10px 28px rgba(40,167,69,0.04);
         margin-bottom: 2rem;
         position: sticky;
-        top: 110px;
+        top: var(--sticky-safe-top, 110px);
         height: fit-content;
-        max-height: calc(100vh - 130px);
+        max-height: calc(100vh - var(--sticky-safe-top, 110px) - 20px);
         overflow-y: auto;
         z-index: 50;
         border: 1px solid rgba(40,167,69,0.06);
@@ -308,7 +308,8 @@
     
     .filter-pill:hover {
         background: var(--bs-primary);
-        color: white;
+        color: #fff;
+        border-color: transparent;
         text-decoration: none;
     }
     
@@ -418,8 +419,8 @@
     
     @media (max-width: 992px) {
         .category-sidebar {
-            top: 80px;
-            max-height: calc(100vh - 100px);
+            top: var(--sticky-safe-top, 96px);
+            max-height: calc(100vh - var(--sticky-safe-top, 96px) - 16px);
         }
     }
 
@@ -463,7 +464,7 @@
 
     .search-container.shop-toolbar-card {
         position: relative;
-        margin-top: -72px;
+        margin-top: -74px;
         margin-bottom: 2rem;
         padding: 22px;
         border-radius: 30px;
@@ -558,14 +559,16 @@
 
     .filter-pill:hover {
         background: #0f5132;
+        color: #fff;
+        border-color: transparent;
     }
 
     .category-sidebar {
         border-radius: 28px;
         padding: 1.1rem 1.1rem 1.35rem;
         box-shadow: 0 24px 46px rgba(15,81,50,0.08);
-        top: 118px;
-        max-height: calc(100vh - 144px);
+        top: var(--sticky-safe-top, 118px);
+        max-height: calc(100vh - var(--sticky-safe-top, 118px) - 26px);
         border: 1px solid rgba(15,81,50,0.08);
         background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
     }
@@ -918,13 +921,13 @@
         }
 
         .search-container.shop-toolbar-card {
-            margin-top: -56px;
+            margin-top: -54px;
             padding: 18px;
             border-radius: 26px;
         }
 
         .category-sidebar {
-            top: 98px;
+            top: var(--sticky-safe-top, 98px);
             max-height: none;
         }
     }
@@ -937,7 +940,7 @@
         }
 
         .search-container.shop-toolbar-card {
-            margin-top: -42px;
+            margin-top: -40px;
             padding: 16px;
             border-radius: 22px;
         }

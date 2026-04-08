@@ -1,170 +1,460 @@
 @extends('frontend.layouts')
 
+@push('styles')
+<style>
+	.profile-page-header {
+		position: relative;
+		margin-top: 18px;
+		padding: 5.5rem 0 6.4rem;
+		border-radius: 0 0 42px 42px;
+		background:
+			radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 24%),
+			radial-gradient(circle at 84% 18%, rgba(32,201,151,0.18), transparent 24%),
+			linear-gradient(135deg, rgba(8,39,27,0.97) 0%, rgba(15,81,50,0.95) 48%, rgba(34,197,94,0.82) 100%);
+		overflow: hidden;
+	}
+
+	.profile-page-header::after {
+		content: '';
+		position: absolute;
+		inset: auto -120px -180px auto;
+		width: 360px;
+		height: 360px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(255,255,255,0.14), rgba(255,255,255,0));
+	}
+
+	.profile-hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 780px;
+		margin: 0 auto;
+	}
+
+	.profile-kicker,
+	.profile-section-kicker {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 16px;
+		border-radius: 999px;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.profile-kicker {
+		margin-bottom: 1rem;
+		background: rgba(255,255,255,0.14);
+		border: 1px solid rgba(255,255,255,0.18);
+		color: #fff;
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+	}
+
+	.profile-page-header .breadcrumb-item,
+	.profile-page-header .breadcrumb-item a {
+		color: rgba(255,255,255,0.82) !important;
+		text-decoration: none;
+	}
+
+	.profile-page-header .breadcrumb-item.active {
+		color: #fff !important;
+	}
+
+	.profile-stage {
+		margin-top: -74px;
+	}
+
+	.profile-sidebar-shell,
+	.profile-surface,
+	.profile-stat-card {
+		border-radius: 32px;
+		border: 1px solid rgba(15,81,50,0.08);
+		background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,251,248,0.96));
+		box-shadow: 0 26px 48px rgba(15,81,50,0.08);
+	}
+
+	.profile-sidebar-shell {
+		padding: 14px;
+	}
+
+	.profile-surface {
+		padding: 26px;
+	}
+
+	.profile-alert {
+		border: none;
+		border-radius: 20px;
+		margin-bottom: 1rem;
+	}
+
+	.profile-section-head {
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		align-items: flex-start;
+		margin-bottom: 1.5rem;
+	}
+
+	.profile-section-kicker {
+		margin-bottom: 0.9rem;
+		background: rgba(15,81,50,0.06);
+		color: #0f5132;
+	}
+
+	.profile-section-head h2 {
+		margin: 0 0 0.4rem;
+		font-family: 'Raleway', sans-serif;
+		font-size: clamp(1.7rem, 3vw, 2.3rem);
+		font-weight: 800;
+		line-height: 1.06;
+		letter-spacing: -0.03em;
+		color: #213547;
+	}
+
+	.profile-section-head p,
+	.profile-note {
+		margin: 0;
+		color: #6b7b74;
+		line-height: 1.7;
+	}
+
+	.profile-stat-grid,
+	.profile-form-grid {
+		display: grid;
+		gap: 14px;
+	}
+
+	.profile-stat-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		margin-bottom: 1.5rem;
+	}
+
+	.profile-stat-card {
+		padding: 18px 20px;
+	}
+
+	.profile-stat-card small {
+		display: block;
+		margin-bottom: 0.45rem;
+		color: #6b7b74;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.profile-stat-card strong {
+		display: block;
+		color: #0f5132;
+		font-size: 1.05rem;
+		line-height: 1.5;
+		word-break: break-word;
+	}
+
+	.profile-form-grid {
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+
+	.profile-field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.65rem;
+		padding: 18px 18px 16px;
+		border-radius: 24px;
+		background: rgba(255,255,255,0.82);
+		border: 1px solid rgba(15,81,50,0.08);
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+	}
+
+	.profile-field--half {
+		grid-column: span 6;
+	}
+
+	.profile-field--third {
+		grid-column: span 4;
+	}
+
+	.profile-field--full {
+		grid-column: span 12;
+	}
+
+	.profile-field label {
+		margin: 0;
+		color: #213547;
+		font-size: 0.92rem;
+		font-weight: 800;
+	}
+
+	.profile-field label span {
+		color: #198754;
+	}
+
+	.profile-field .form-control,
+	.profile-field select {
+		width: 100%;
+		min-height: 52px;
+		border-radius: 16px;
+		border: 1px solid rgba(15,81,50,0.12);
+		background: #fff;
+		color: #213547;
+		box-shadow: none;
+	}
+
+	.profile-field .form-control:focus,
+	.profile-field select:focus {
+		border-color: rgba(25,135,84,0.52);
+		box-shadow: 0 0 0 0.22rem rgba(25,135,84,0.14);
+	}
+
+	.profile-help {
+		color: #7a8982;
+		font-size: 0.84rem;
+		line-height: 1.6;
+	}
+
+	.field-error {
+		color: #c1121f;
+		font-size: 0.84rem;
+		font-weight: 700;
+	}
+
+	.profile-action-row {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1.4rem;
+	}
+
+	.profile-submit {
+		min-width: 210px;
+		min-height: 52px;
+		border: 0;
+		border-radius: 18px;
+		background: linear-gradient(90deg, #0f5132, #22a06b);
+		color: #fff;
+		font-weight: 800;
+		box-shadow: 0 18px 28px rgba(15,81,50,0.14);
+		transition: transform 0.22s ease, box-shadow 0.22s ease;
+	}
+
+	.profile-submit:hover {
+		color: #fff;
+		transform: translateY(-2px);
+		box-shadow: 0 22px 34px rgba(15,81,50,0.18);
+	}
+
+	@media (max-width: 991px) {
+		.profile-stat-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.profile-field--half,
+		.profile-field--third,
+		.profile-field--full {
+			grid-column: span 12;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.profile-page-header {
+			padding: 5rem 0 5.8rem;
+			border-radius: 0 0 28px 28px;
+		}
+
+		.profile-stage {
+			margin-top: -54px;
+		}
+
+		.profile-sidebar-shell,
+		.profile-surface,
+		.profile-stat-card,
+		.profile-field {
+			border-radius: 24px;
+		}
+
+		.profile-surface {
+			padding: 20px;
+		}
+
+		.profile-action-row {
+			justify-content: stretch;
+		}
+
+		.profile-submit {
+			width: 100%;
+		}
+	}
+</style>
+@endpush
+
 @section('content')
-	<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210" style="background-image: url({{ asset('themes/ezone/assets/img/bg/breadcrumb.jpg') }}); margin-top: 12rem;">
+	<div class="container-fluid page-header profile-page-header py-5">
+		<div class="container">
+			<div class="profile-hero-content text-center">
+				<span class="profile-kicker"><i class="fas fa-user-gear"></i> Customer Profile</span>
+				<h1 class="text-white display-5 fw-bold mb-3">Atur Detail Akun dan Alamat Anda</h1>
+				<p class="text-white-50 lead mb-3">Form yang sama sekarang dibuat lebih jelas, lebih rapi, dan lebih aman dipakai di mobile tanpa mengubah field atau alur update yang sudah ada.</p>
+				<ol class="breadcrumb justify-content-center mb-0">
+					<li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+					<li class="breadcrumb-item active text-white">Profile</li>
+				</ol>
+			</div>
+		</div>
 	</div>
-	<div class="shop-page-wrapper shop-page-padding ptb-100">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-3">
-					@include('frontend.partials.user_menu')
+
+	<div class="container-fluid profile-stage py-5">
+		<div class="container pb-5">
+			<div class="row g-4 align-items-start">
+				<div class="col-lg-4 col-xl-3">
+					<div class="profile-sidebar-shell">
+						@include('frontend.partials.user_menu')
+					</div>
 				</div>
-				<div class="col-lg-9">
-                    @if(session()->has('message'))
-                        <div class="content-header mb-3 pb-0">
-                            <div class="container-fluid">
-                                <div class="mb-0 alert alert-{{ session()->get('alert-type') }} alert-dismissible fade show" role="alert">
-                                    <strong>{{ session()->get('message') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div><!-- /.container-fluid -->
-                        </div>
-                    @endif
-					<div class="login">
-						<div class="login-form-container">
-							<div class="login-form">
-                                    <form action="{{ url('profile') }}" method="post">
-									@csrf
-                                    @method('put')
-									<div class="form-group row mb-4">
-										<div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Nama <span class="required">*</span></label>
-                                                <input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}">
-                                            </div>
-                                            @error('last_name')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
+				<div class="col-lg-8 col-xl-9">
+					@if(session()->has('message'))
+						<div class="alert profile-alert alert-{{ session()->get('alert-type') }} alert-dismissible fade show" role="alert">
+							<strong>{{ session()->get('message') }}</strong>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					@endif
 
-									<div class="form-group row mb-4">
-										<div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <label>Address <span class="required">*</span></label>
-                                                <input class="form-control" type="text" name="address1" value="{{ old('address1', auth()->user()->address1) }}">
-                                            </div>
-                                            @error('address1')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
-
-									<div class="form-group row mb-4">
-										<div class="col-md-12">
-                                            <div class="checkout-form-list">
-                                                <input class="form-control" type="text" name="address2" value="{{ old('address2', auth()->user()->address2) }}">
-                                            </div>
-                                            @error('address2')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
-
-									<div class="form-group row mb-4">
-										<div class="col-md-4">
-                                            <label>Provinsi<span class="required">*</span></label>
-                                            <select class="form-control" name="province_id" id="shipping-province">
-                                                <option value="">-- Pilih Provinsi --</option>
-                                                @foreach($provinces as $id => $province)
-                                                    <option value="{{ $id }}" {{ $id == auth()->user()->province_id ? 'selected' : '' }}>{{ $province }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('province_id')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-										<div class="col-md-4">
-                                            <label>City<span class="required">*</span></label>
-                                            <select class="form-control" name="city_id" id="shipping-city">
-                                                <option value="">-- Pilih Kota --</option>
-                                                @if($cities)
-                                                    @foreach($cities as $id => $city)
-                                                        <option value="{{ $id }}" {{ $id == auth()->user()->city_id ? 'selected' : '' }}>{{ $city }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                            @error('city_id')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-										<div class="col-md-4">
-                                            <label>District<span class="required">*</span></label>
-                                            <select class="form-control" name="district_id" id="shipping-district">
-                                                <option value="">-- Pilih Kecamatan --</option>
-                                                @if($districts)
-                                                    @foreach($districts as $id => $district)
-                                                        <option value="{{ $id }}" {{ $id == auth()->user()->district_id ? 'selected' : '' }}>{{ $district }}</option>
-                                                    @endforeach
-                                                @endif
-                                            </select>
-                                            @error('district_id')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
-
-									<div class="form-group row mb-4">
-										<div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Postcode / Zip <span class="required">*</span></label>
-                                                <input class="form-control" type="text" name="postcode" value="{{ old('postcode', auth()->user()->postcode) }}">
-                                            </div>
-                                            @error('postcode')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-										<div class="col-md-6">
-                                            <div class="checkout-form-list">
-                                                <label>Phone  <span class="required">*</span></label>
-                                                <input class="form-control" type="text" name="phone" value="{{ old('phone', auth()->user()->phone) }}">
-                                            </div>
-											@error('phone')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
-
-									<div class="form-group row mb-4">
-										<div class="col-md-12">
-                                            <input class="form-control" name="email" type="email" value="{{ old('email', auth()->user()->email) }}" class="form-control" placeholder="Email">
-											@error('email')
-												<span class="invalid-feedback" role="alert">
-													<strong>{{ $message }}</strong>
-												</span>
-											@enderror
-										</div>
-									</div>
-									<div class="button-box">
-										<button type="submit" class="default-btn floatright">Update Profile</button>
-									</div>
-								</form>
+					<div class="profile-surface">
+						<div class="profile-section-head">
+							<div>
+								<span class="profile-section-kicker"><i class="fas fa-address-card"></i> Account Details</span>
+								<h2>Update Profil Dengan Lebih Nyaman</h2>
+								<p>Semua field lama tetap dipakai apa adanya. Yang berubah hanya susunan visual, hirarki informasi, dan kenyamanan saat mengisi dari layar kecil.</p>
 							</div>
 						</div>
+
+						<div class="profile-stat-grid">
+							<div class="profile-stat-card">
+								<small>Email</small>
+								<strong>{{ auth()->user()->email }}</strong>
+							</div>
+							<div class="profile-stat-card">
+								<small>Phone</small>
+								<strong>{{ auth()->user()->phone ?: 'Belum diisi' }}</strong>
+							</div>
+							<div class="profile-stat-card">
+								<small>Postcode</small>
+								<strong>{{ auth()->user()->postcode ?: 'Belum diisi' }}</strong>
+							</div>
+						</div>
+
+						<form action="{{ url('profile') }}" method="post">
+							@csrf
+							@method('put')
+
+							<div class="profile-form-grid">
+								<div class="profile-field profile-field--half">
+									<label>Nama <span>*</span></label>
+									<input type="text" class="form-control" name="name" value="{{ old('name', auth()->user()->name) }}">
+									<span class="profile-help">Nama ini akan dipakai di informasi akun pelanggan.</span>
+									@error('name')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--half">
+									<label>Email <span>*</span></label>
+									<input class="form-control" name="email" type="email" value="{{ old('email', auth()->user()->email) }}" placeholder="Email">
+									<span class="profile-help">Email aktif untuk komunikasi order dan akun.</span>
+									@error('email')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--full">
+									<label>Address <span>*</span></label>
+									<input class="form-control" type="text" name="address1" value="{{ old('address1', auth()->user()->address1) }}">
+									@error('address1')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--full">
+									<label>Address Detail Tambahan</label>
+									<input class="form-control" type="text" name="address2" value="{{ old('address2', auth()->user()->address2) }}">
+									<span class="profile-help">Contoh: blok, lantai, patokan, atau catatan alamat.</span>
+									@error('address2')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--third">
+									<label>Provinsi <span>*</span></label>
+									<select class="form-control" name="province_id" id="shipping-province">
+										<option value="">-- Pilih Provinsi --</option>
+										@foreach($provinces as $id => $province)
+											<option value="{{ $id }}" {{ $id == auth()->user()->province_id ? 'selected' : '' }}>{{ $province }}</option>
+										@endforeach
+									</select>
+									@error('province_id')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--third">
+									<label>City <span>*</span></label>
+									<select class="form-control" name="city_id" id="shipping-city">
+										<option value="">-- Pilih Kota --</option>
+										@if($cities)
+											@foreach($cities as $id => $city)
+												<option value="{{ $id }}" {{ $id == auth()->user()->city_id ? 'selected' : '' }}>{{ $city }}</option>
+											@endforeach
+										@endif
+									</select>
+									@error('city_id')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--third">
+									<label>District <span>*</span></label>
+									<select class="form-control" name="district_id" id="shipping-district">
+										<option value="">-- Pilih Kecamatan --</option>
+										@if($districts)
+											@foreach($districts as $id => $district)
+												<option value="{{ $id }}" {{ $id == auth()->user()->district_id ? 'selected' : '' }}>{{ $district }}</option>
+											@endforeach
+										@endif
+									</select>
+									@error('district_id')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--half">
+									<label>Postcode / Zip <span>*</span></label>
+									<input class="form-control" type="text" name="postcode" value="{{ old('postcode', auth()->user()->postcode) }}">
+									@error('postcode')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+
+								<div class="profile-field profile-field--half">
+									<label>Phone <span>*</span></label>
+									<input class="form-control" type="text" name="phone" value="{{ old('phone', auth()->user()->phone) }}">
+									@error('phone')
+										<span class="field-error">{{ $message }}</span>
+									@enderror
+								</div>
+							</div>
+
+							<div class="profile-action-row">
+								<button type="submit" class="profile-submit">Update Profile</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- register-area end -->
 @endsection
 
 @push('script-alt')
