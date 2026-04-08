@@ -34,6 +34,12 @@
         color: #fff;
         font-size: 1.6rem;
         margin-bottom: 4px;
+        letter-spacing: -0.03em;
+    }
+
+    .footer-brand h3 .fbw-shop {
+        color: #20c997;
+        font-style: italic;
     }
 
     .footer-brand-tagline {
@@ -188,7 +194,7 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <div class="footer-brand">
-                    <h3>{{ optional($setting)->nama_toko ?? config('app.name') }}</h3>
+                    <h3>Vivia<span class="fbw-shop">Shop</span></h3>
                     <span class="footer-brand-tagline">Percetakan & ATK</span>
                 </div>
                 <p class="footer-desc">Harga yang bersaing, dengan kualitas yang terbaik. Telah dipercaya oleh beberapa instansi ternama di Jombang dan sekitarnya.</p>

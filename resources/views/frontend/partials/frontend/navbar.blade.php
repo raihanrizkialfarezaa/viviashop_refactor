@@ -147,15 +147,33 @@
 
     .brand-name {
         font-family: 'Raleway', sans-serif;
-        font-size: 1.16rem;
+        font-size: 1.22rem;
         font-weight: 800;
         line-height: 1.05;
         color: #111827;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.03em;
         transition: color 0.24s ease;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .brand-name .bw-vivia {
+        color: inherit;
+    }
+
+    .brand-name .bw-shop {
+        color: var(--v-secondary);
+        font-style: italic;
+    }
+
+    .site-header--overlay .brand-name .bw-shop {
+        color: var(--v-accent);
+    }
+
+    .site-header--overlay.is-scrolled .brand-name .bw-shop,
+    .site-header--overlay.is-menu-open .brand-name .bw-shop {
+        color: var(--v-secondary);
     }
 
     .brand-subtitle {
@@ -703,7 +721,7 @@
                     <i class="fas fa-print"></i>
                 </span>
                 <span class="brand-text">
-                    <span class="brand-name">{{ optional($setting)->nama_toko ?? config('app.name') }}</span>
+                    <span class="brand-name"><span class="bw-vivia">Vivia</span><span class="bw-shop">Shop</span></span>
                     <span class="brand-subtitle">Percetakan & ATK</span>
                 </span>
             </a>
