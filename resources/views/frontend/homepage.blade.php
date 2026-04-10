@@ -133,7 +133,7 @@
     .hero-panel {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 2rem;
     }
 
@@ -141,18 +141,37 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        padding: 12px 16px;
+        padding: 10px 16px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.16);
         color: #fff;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+        cursor: default;
+    }
+
+    .hero-panel-chip:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.28);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
 
     .hero-panel-chip i {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: rgba(185,246,208,0.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         color: #b9f6d0;
+        font-size: 0.8rem;
+        flex-shrink: 0;
     }
 
     .hero-actions {
@@ -201,24 +220,31 @@
     .hero-trust {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
     }
 
     .hero-trust-item {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px 14px;
+        gap: 8px;
+        padding: 9px 14px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: rgba(255, 255, 255, 0.92);
-        font-size: 0.88rem;
-        font-weight: 600;
+        background: rgba(185,246,208,0.1);
+        border: 1px solid rgba(185,246,208,0.2);
+        color: rgba(255, 255, 255, 0.94);
+        font-size: 0.84rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+
+    .hero-trust-item:hover {
+        background: rgba(185,246,208,0.18);
+        transform: translateY(-1px);
     }
 
     .hero-trust-item i {
         color: #b9f6d0;
+        font-size: 0.82rem;
     }
 
     .hero-visual {
@@ -330,25 +356,28 @@
 
     .hero-floating-card {
         position: absolute;
-        padding: 16px 18px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 22px 48px rgba(15, 81, 50, 0.16);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        padding: 18px 20px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.97);
+        box-shadow: 0 24px 52px rgba(15, 81, 50, 0.18), 0 4px 12px rgba(15,81,50,0.06);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         color: var(--v-dark);
-        max-width: 260px;
+        max-width: 272px;
         z-index: 2;
+        border-top: 3px solid var(--v-primary);
+        border: 1px solid rgba(15,81,50,0.07);
+        border-top: 3px solid var(--v-primary);
     }
 
     .hero-floating-card--top {
-        top: 40px;
-        left: -6px;
+        top: 36px;
+        left: -8px;
     }
 
     .hero-floating-card--bottom {
         right: -10px;
-        bottom: 32px;
+        bottom: 30px;
     }
 
     .hero-floating-title {
@@ -356,8 +385,9 @@
         align-items: center;
         gap: 10px;
         font-weight: 800;
+        font-size: 0.96rem;
         color: var(--v-primary);
-        margin-bottom: 6px;
+        margin-bottom: 8px;
     }
 
     .hero-floating-title i {
@@ -369,13 +399,14 @@
         align-items: center;
         justify-content: center;
         color: var(--v-primary);
+        flex-shrink: 0;
     }
 
     .hero-floating-text {
         margin: 0;
-        color: #6b7280;
-        font-size: 0.9rem;
-        line-height: 1.6;
+        color: #5a6472;
+        font-size: 0.87rem;
+        line-height: 1.65;
     }
 
     .hero-floating-chip {
@@ -383,12 +414,145 @@
         align-items: center;
         gap: 8px;
         margin-top: 12px;
-        padding: 8px 12px;
+        padding: 7px 12px;
         border-radius: 999px;
-        background: #ecfdf5;
+        background: linear-gradient(135deg, rgba(15,81,50,0.07), rgba(32,201,151,0.1));
+        border: 1px solid rgba(15,81,50,0.1);
         color: var(--v-primary);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         font-weight: 700;
+    }
+
+    .hero-floating-stat-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(15,81,50,0.07);
+    }
+
+    .hero-floating-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+    }
+
+    .hero-stat-num {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.12rem;
+        font-weight: 800;
+        color: var(--v-primary);
+        line-height: 1.1;
+    }
+
+    .hero-stat-label {
+        font-size: 0.66rem;
+        font-weight: 700;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-floating-stat-divider {
+        width: 1px;
+        height: 28px;
+        background: rgba(15,81,50,0.1);
+    }
+
+    /* HERO PLACEHOLDER (shown when no slides in DB) */
+    .hero-placeholder-visual {
+        border-radius: 30px;
+        overflow: hidden;
+        height: 540px;
+        background:
+            radial-gradient(ellipse at 70% 30%, rgba(32,201,151,0.28) 0%, transparent 55%),
+            radial-gradient(ellipse at 20% 80%, rgba(15,81,50,0.35) 0%, transparent 50%),
+            linear-gradient(145deg, #0a3321 0%, #0f5132 45%, #145235 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .hero-placeholder-visual::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 32px),
+            repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 32px);
+        pointer-events: none;
+    }
+    .hero-placeholder-inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 40px 32px;
+        color: white;
+    }
+    .hero-placeholder-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: rgba(32,201,151,0.18);
+        border: 1px solid rgba(32,201,151,0.35);
+        color: #20c997;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+    .hero-placeholder-title {
+        font-family: 'Raleway', sans-serif;
+        font-size: clamp(2.4rem, 6vw, 3.8rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #fff 30%, #20c997 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .hero-placeholder-subtitle {
+        font-size: 1.02rem;
+        color: rgba(255,255,255,0.68);
+        margin-bottom: 36px;
+        font-weight: 500;
+    }
+    .hero-placeholder-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .hero-placeholder-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.14);
+        color: rgba(255,255,255,0.86);
+        font-size: 0.84rem;
+        font-weight: 600;
+        backdrop-filter: blur(8px);
+        transition: background 0.25s;
+    }
+    .hero-placeholder-chip i {
+        color: #20c997;
+    }
+    @media (max-width: 991.98px) {
+        .hero-placeholder-visual { height: 420px; }
+    }
+    @media (max-width: 575.98px) {
+        .hero-placeholder-visual { height: 320px; }
+        .hero-placeholder-inner { padding: 28px 20px; }
     }
 
     /* FEATURES */
@@ -2192,43 +2356,82 @@
                     </span>
                 </div>
                 <div class="hero-trust">
-                    <span class="hero-trust-item"><i class="fas fa-check-circle"></i> Order lebih mudah</span>
-                    <span class="hero-trust-item"><i class="fas fa-clock"></i> Support responsif</span>
+                    <span class="hero-trust-item"><i class="fas fa-check-circle"></i> 500+ pelanggan puas</span>
+                    <span class="hero-trust-item"><i class="fas fa-map-marker-alt"></i> Toko di Cukir, Jombang</span>
+                    <span class="hero-trust-item"><i class="fas fa-clock"></i> Respons cepat via WA</span>
                 </div>
             </div>
             <div class="col-lg-6 animate-up delay-2">
                 <div class="hero-visual">
                     <div class="hero-floating-card hero-floating-card--top d-none d-md-block">
                         <div class="hero-floating-title">
-                            <i class="fas fa-award"></i>
-                            Kualitas unggulan
+                            <i class="fas fa-medal"></i>
+                            Kualitas Terjamin
                         </div>
-                        <p class="hero-floating-text">Dipilih untuk hasil yang presisi, warna lebih hidup, dan tampilan yang tetap profesional.</p>
+                        <p class="hero-floating-text">Tinta pigment anti-luntur di atas kertas HVS premium — hasil cetak tajam, bersih, dan tahan lama.</p>
+                        <div class="hero-floating-stat-row">
+                            <div class="hero-floating-stat">
+                                <span class="hero-stat-num">500+</span>
+                                <span class="hero-stat-label">Pelanggan</span>
+                            </div>
+                            <div class="hero-floating-stat-divider"></div>
+                            <div class="hero-floating-stat">
+                                <span class="hero-stat-num">4.9★</span>
+                                <span class="hero-stat-label">Rating</span>
+                            </div>
+                            <div class="hero-floating-stat-divider"></div>
+                            <div class="hero-floating-stat">
+                                <span class="hero-stat-num">5th</span>
+                                <span class="hero-stat-label">Tahun</span>
+                            </div>
+                        </div>
                     </div>
+                    @php
+                        $carouselItems = $slides->isNotEmpty()
+                            ? $slides->map(fn($s) => ['src' => asset('storage/' . $s->path), 'label' => 'Promo'])
+                            : $popular->take(4)->filter(fn($p) => $p->productImages->isNotEmpty())
+                                      ->map(fn($p) => ['src' => asset('storage/' . $p->productImages->first()->path), 'label' => $p->name]);
+                    @endphp
                     <div class="hero-carousel-shell">
+                        @if($carouselItems->isNotEmpty())
                         <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                @foreach ($slides as $key)
-                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}" aria-label="Slide {{ $loop->index + 1 }}"></button>
+                                @foreach ($carouselItems as $idx => $item)
+                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ $idx }}" class="{{ $idx === 0 ? 'active' : '' }}" aria-label="Slide {{ $idx + 1 }}"></button>
                                 @endforeach
                             </div>
                             <div class="carousel-inner">
-                                @foreach ($slides as $key => $images)
-                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                        <img src="{{ asset('storage/' . $images->path) }}" class="d-block w-100" alt="Slide {{ $key + 1 }}">
+                                @foreach ($carouselItems as $idx => $item)
+                                    <div class="carousel-item {{ $idx === 0 ? 'active' : '' }}">
+                                        <img src="{{ $item['src'] }}" class="d-block w-100" alt="{{ $item['label'] }}">
                                         <div class="position-absolute w-100 h-100 top-0 left-0" style="background: linear-gradient(to top, rgba(0,0,0,0.32), transparent);"></div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
+                        @else
+                        <div class="hero-placeholder-visual">
+                            <div class="hero-placeholder-inner">
+                                <div class="hero-placeholder-badge"><i class="fas fa-print"></i> Percetakan & ATK Premium</div>
+                                <div class="hero-placeholder-title">ViviaShop</div>
+                                <div class="hero-placeholder-subtitle">Solusi cetak profesional di Cukir, Jombang</div>
+                                <div class="hero-placeholder-chips">
+                                    <span class="hero-placeholder-chip"><i class="fas fa-file-alt"></i> Dokumen & Brosur</span>
+                                    <span class="hero-placeholder-chip"><i class="fas fa-id-card"></i> ID Card</span>
+                                    <span class="hero-placeholder-chip"><i class="fas fa-calendar-alt"></i> Kalender</span>
+                                    <span class="hero-placeholder-chip"><i class="fas fa-pencil-alt"></i> Alat Tulis</span>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                     <div class="hero-floating-card hero-floating-card--bottom d-none d-md-block">
                         <div class="hero-floating-title">
                             <i class="fas fa-bolt"></i>
-                            Siap order cepat
+                            Order Mudah & Cepat
                         </div>
-                        <p class="hero-floating-text mb-0">Katalog, cetak, dan checkout dalam satu alur yang lebih ringkas.</p>
-                        <div class="hero-floating-chip"><i class="fas fa-check"></i> Respons lebih cepat</div>
+                        <p class="hero-floating-text mb-0">Pesan via website, WhatsApp, atau kunjungi toko kami langsung di Cukir, Jombang.</p>
+                        <div class="hero-floating-chip"><i class="fas fa-clock"></i> Estimasi 1–3 hari kerja</div>
                     </div>
                 </div>
             </div>
