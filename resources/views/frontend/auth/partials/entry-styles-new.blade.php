@@ -134,28 +134,27 @@
     position: relative;
     z-index: 1;
     margin-bottom: 1rem;
-    background: rgba(255,255,255,0.13);
-    border: 1px solid rgba(255,255,255,0.20);
-    color: #fff;
+    background: rgba(255,255,255,0.11);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.90);
 }
 
 .auth-entry-aside h2 {
     position: relative;
     z-index: 1;
-    margin: 0 0 0.7rem;
+    margin: 0 0 0.6rem;
     font-family: 'Raleway', sans-serif;
     font-size: clamp(1.55rem, 2.6vw, 2rem);
     font-weight: 800;
     line-height: 1.12;
     letter-spacing: -0.03em;
     color: #fff;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.22);
 }
 
 .auth-entry-aside > p {
     position: relative;
     z-index: 1;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.74);
     line-height: 1.72;
     margin: 0;
     font-size: 0.91rem;
@@ -186,32 +185,30 @@
 }
 
 .auth-entry-feature i {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     flex-shrink: 0;
     border-radius: 13px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(32,201,151,0.25);
-    border: 1px solid rgba(32,201,151,0.40);
-    color: #fff;
-    font-size: 1rem;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    background: rgba(32,201,151,0.18);
+    border: 1px solid rgba(32,201,151,0.22);
+    color: #20c997;
+    font-size: 0.88rem;
 }
 
 .auth-entry-feature strong {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     color: #fff;
-    font-size: 0.94rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-size: 0.91rem;
+    font-weight: 700;
 }
 
 .auth-entry-feature span {
-    color: rgba(255,255,255,0.82);
-    font-size: 0.83rem;
+    color: rgba(255,255,255,0.66);
+    font-size: 0.82rem;
     line-height: 1.58;
 }
 
@@ -248,8 +245,8 @@
 
 .auth-entry-aside-stat span {
     display: block;
-    color: rgba(255,255,255,0.70);
-    font-size: 0.67rem;
+    color: rgba(255,255,255,0.52);
+    font-size: 0.66rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.07em;

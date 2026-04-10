@@ -38,4 +38,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+
+    {{-- Page-specific styles pushed from child views --}}
+    @stack('styles')
 </head>
