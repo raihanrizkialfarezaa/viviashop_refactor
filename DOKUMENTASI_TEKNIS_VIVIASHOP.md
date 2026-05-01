@@ -60,55 +60,55 @@ Dokumen ini bertujuan memberi gambaran teknis dan fungsional yang akurat berdasa
 
 ### 3.1 Backend Utama
 
-| Komponen | Versi/Library | Peran |
-| --- | --- | --- |
-| PHP | `^8.1` | Runtime utama aplikasi |
-| Laravel | `^10.0` | Framework backend utama |
-| Eloquent ORM | Built-in Laravel | Model, relasi, query builder |
-| Laravel UI | `^4.0` | Auth scaffolding klasik |
-| Laravel Sanctum | `^3.2` | Proteksi endpoint API tertentu |
-| Laravel Tinker | `^2.8` | Tooling interaktif developer |
+| Komponen        | Versi/Library    | Peran                          |
+| --------------- | ---------------- | ------------------------------ |
+| PHP             | `^8.1`           | Runtime utama aplikasi         |
+| Laravel         | `^10.0`          | Framework backend utama        |
+| Eloquent ORM    | Built-in Laravel | Model, relasi, query builder   |
+| Laravel UI      | `^4.0`           | Auth scaffolding klasik        |
+| Laravel Sanctum | `^3.2`           | Proteksi endpoint API tertentu |
+| Laravel Tinker  | `^2.8`           | Tooling interaktif developer   |
 
 ### 3.2 Frontend dan Asset Pipeline
 
-| Komponen | Versi/Library | Peran |
-| --- | --- | --- |
-| Vite | `^4.0.0` | Build tool frontend |
-| Sass | `^1.56.1` | Styling preprocessor |
-| Bootstrap | `~4.6.1` | UI framework klasik |
-| jQuery | `^3.3.1` | DOM scripting legacy/classic |
-| Axios | `^1.1.2` | HTTP request dari frontend |
-| Lodash | `^4.17.21` | Utility frontend |
+| Komponen  | Versi/Library | Peran                        |
+| --------- | ------------- | ---------------------------- |
+| Vite      | `^4.0.0`      | Build tool frontend          |
+| Sass      | `^1.56.1`     | Styling preprocessor         |
+| Bootstrap | `~4.6.1`      | UI framework klasik          |
+| jQuery    | `^3.3.1`      | DOM scripting legacy/classic |
+| Axios     | `^1.1.2`      | HTTP request dari frontend   |
+| Lodash    | `^4.17.21`    | Utility frontend             |
 
 ### 3.3 Integrasi Bisnis dan Eksternal
 
-| Komponen | Versi/Library | Peran |
-| --- | --- | --- |
-| Midtrans PHP | `^2.6` | Payment gateway otomatis |
-| Guzzle | `^7.9` | HTTP client untuk integrasi |
-| Laravel Socialite | `^5.19` | OAuth login/connection Instagram |
-| Socialite Instagram Providers | `^5.1` / `^4.2` | Provider Instagram |
-| Cloudinary Laravel | `^2.3` | Upload media ke Cloudinary |
-| RajaOngkir/Binderbyte | wrapper custom via `rajaongkir_komerce.php` | Provinsi, kota, kecamatan, ongkir |
-| Shoppingcart | `hardevine/shoppingcart` | Keranjang belanja |
-| DOMPDF | `barryvdh/laravel-dompdf` | PDF invoice/laporan/barcode |
-| Laravel Excel | `maatwebsite/excel` | Import/export Excel |
-| Milon Barcode | `^12.0` | Barcode produk |
-| Simple QR Code | `^4.2` | QR code untuk sesi print service |
-| Yajra Datatables | `^10.3.1` | Data table server-side |
-| SweetAlert | `^7.2` | Alert UI admin |
-| Eloquent Sluggable | `^10.0` | Slug produk/kategori |
+| Komponen                      | Versi/Library                               | Peran                             |
+| ----------------------------- | ------------------------------------------- | --------------------------------- |
+| Midtrans PHP                  | `^2.6`                                      | Payment gateway otomatis          |
+| Guzzle                        | `^7.9`                                      | HTTP client untuk integrasi       |
+| Laravel Socialite             | `^5.19`                                     | OAuth login/connection Instagram  |
+| Socialite Instagram Providers | `^5.1` / `^4.2`                             | Provider Instagram                |
+| Cloudinary Laravel            | `^2.3`                                      | Upload media ke Cloudinary        |
+| RajaOngkir/Binderbyte         | wrapper custom via `rajaongkir_komerce.php` | Provinsi, kota, kecamatan, ongkir |
+| Shoppingcart                  | `hardevine/shoppingcart`                    | Keranjang belanja                 |
+| DOMPDF                        | `barryvdh/laravel-dompdf`                   | PDF invoice/laporan/barcode       |
+| Laravel Excel                 | `maatwebsite/excel`                         | Import/export Excel               |
+| Milon Barcode                 | `^12.0`                                     | Barcode produk                    |
+| Simple QR Code                | `^4.2`                                      | QR code untuk sesi print service  |
+| Yajra Datatables              | `^10.3.1`                                   | Data table server-side            |
+| SweetAlert                    | `^7.2`                                      | Alert UI admin                    |
+| Eloquent Sluggable            | `^10.0`                                     | Slug produk/kategori              |
 
 ### 3.4 Dependensi Developer dan Kualitas Kode
 
-| Komponen | Peran |
-| --- | --- |
-| Laravel Pint | formatter/code style |
-| PHPUnit 10 | unit/feature test framework |
-| Laravel Debugbar | debugging lokal |
-| Collision | output error CLI |
-| Laravel Sail | opsi container/dev environment |
-| Larastarters | starter/dev tooling |
+| Komponen         | Peran                          |
+| ---------------- | ------------------------------ |
+| Laravel Pint     | formatter/code style           |
+| PHPUnit 10       | unit/feature test framework    |
+| Laravel Debugbar | debugging lokal                |
+| Collision        | output error CLI               |
+| Laravel Sail     | opsi container/dev environment |
+| Larastarters     | starter/dev tooling            |
 
 ### 3.5 Konfigurasi Penting
 
